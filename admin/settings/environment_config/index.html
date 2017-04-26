@@ -19,7 +19,7 @@
     
     
       
-        <title>LeoGateway Settings - LeoFS Documentation</title>
+        <title>Environment Configuration - LeoFS Documentation</title>
       
     
     
@@ -86,7 +86,7 @@
                 </span>
               
             
-            LeoGateway Settings
+            Environment Configuration
           
         </span>
       </div>
@@ -461,11 +461,68 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../environment_config/" title="Environment Configuration" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Environment Configuration
+      </label>
+    
+    <a href="./" title="Environment Configuration" class="md-nav__link md-nav__link--active">
       Environment Configuration
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-configuration" title="Example Configuration" class="md-nav__link">
+    Example Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-settings-snmp-config" title="Additional settings - SNMP config" class="md-nav__link">
+    Additional settings - SNMP config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notice" title="Notice" class="md-nav__link">
+    Notice
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -497,108 +554,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        LeoGateway Settings
-      </label>
-    
-    <a href="./" title="LeoGateway Settings" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../leo_gateway/" title="LeoGateway Settings" class="md-nav__link">
       LeoGateway Settings
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prior-knowledge" title="Prior Knowledge" class="md-nav__link">
-    Prior Knowledge
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" title="Configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#leogateway-configurations" title="LeoGateway Configurations" class="md-nav__link">
-    LeoGateway Configurations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#erlang-vms-related-configurations" title="Erlang VM's Related Configurations" class="md-nav__link">
-    Erlang VM's Related Configurations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#notes-and-tips-of-the-configuration" title="Notes and Tips of the Configuration" class="md-nav__link">
-    Notes and Tips of the Configuration
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cache-consistency-between-leogateway-and-leostorage" title="Cache Consistency between LeoGateway and LeoStorage" class="md-nav__link">
-    Cache Consistency between LeoGateway and LeoStorage
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-related-to-disk-cache" title="Configuration related to Disk Cache" class="md-nav__link">
-    Configuration related to Disk Cache
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-links" title="Related Links" class="md-nav__link">
-    Related Links
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -993,69 +953,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prior-knowledge" title="Prior Knowledge" class="md-nav__link">
-    Prior Knowledge
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" title="Configuration" class="md-nav__link">
-    Configuration
+  <a href="#example-configuration" title="Example Configuration" class="md-nav__link">
+    Example Configuration
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#leogateway-configurations" title="LeoGateway Configurations" class="md-nav__link">
-    LeoGateway Configurations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#erlang-vms-related-configurations" title="Erlang VM's Related Configurations" class="md-nav__link">
-    Erlang VM's Related Configurations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#notes-and-tips-of-the-configuration" title="Notes and Tips of the Configuration" class="md-nav__link">
-    Notes and Tips of the Configuration
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cache-consistency-between-leogateway-and-leostorage" title="Cache Consistency between LeoGateway and LeoStorage" class="md-nav__link">
-    Cache Consistency between LeoGateway and LeoStorage
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-related-to-disk-cache" title="Configuration related to Disk Cache" class="md-nav__link">
-    Configuration related to Disk Cache
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-links" title="Related Links" class="md-nav__link">
-    Related Links
+  <a href="#additional-settings-snmp-config" title="Additional settings - SNMP config" class="md-nav__link">
+    Additional settings - SNMP config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notice" title="Notice" class="md-nav__link">
+    Notice
   </a>
   
 </li>
@@ -1074,413 +994,141 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/leo-project/leofs/edit/master/docs/admin/settings/leo_gateway.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/leo-project/leofs/edit/master/docs/admin/settings/environment_config.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="leogateway-settings">LeoGateway Settings<a class="headerlink" href="#leogateway-settings" title="Permanent link">&para;</a></h1>
-<h2 id="prior-knowledge">Prior Knowledge<a class="headerlink" href="#prior-knowledge" title="Permanent link">&para;</a></h2>
-<p>LeoGateway is a multi-protocols storage proxy, which supports REST-API over HTTP, Amazon S3-API<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> and NFS v3<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup>. LeoGateway provides the object cache feature to efficiently and effectively handle requests and to keep high performance of your storage system.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<h3 id="leogateway-configurations">LeoGateway Configurations<a class="headerlink" href="#leogateway-configurations" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Item</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>LeoManager Nodes</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>managers</td>
-<td>Name of LeoManager nodes. This configuration is necessary for communicating with <code class="codehilite">LeoManager&#39;s master</code> and <code class="codehilite">LeoManager&#39;s slave</code>.<p>( Default: [manager_0@127.0.0.1, manager_1@127.0.0.1] )</p></td>
-</tr>
-<tr>
-<td><strong>LeoGateway Basic</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>protocol</td>
-<td>Gateway Protocol - [s3/rest/embed/nfs] <p>( Default: s3 )</p></td>
-</tr>
-<tr>
-<td><strong>HTTP Related (S3/REST)</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>http.port</td>
-<td>Port number the Gateway uses for HTTP connections <p>( Default: 8080 )</p></td>
-</tr>
-<tr>
-<td>http.num_of_acceptors</td>
-<td>Numbers of processes listening for connections <p>( Default: 128 )</p></td>
-</tr>
-<tr>
-<td>http.max_keepalive</td>
-<td>Maximum number of requests allowed in a single keep-alive session <p>( Default: 4096 )</p></td>
-</tr>
-<tr>
-<td>http.layer_of_dirs</td>
-<td>Maximum number of virtual directory levels <p>( Default: 12 )</p></td>
-</tr>
-<tr>
-<td>http.ssl_port</td>
-<td>Port number the Gateway uses for HTTPS connections <p>( Default: 8443 )</p></td>
-</tr>
-<tr>
-<td>http.ssl_certfile</td>
-<td>SSL Certificate file <p>( Default: ./etc/server_cert.pem )</p></td>
-</tr>
-<tr>
-<td>http.ssl_keyfile</td>
-<td>SSL key file <p>( Default: ./etc/server_key.pem )</p></td>
-</tr>
-<tr>
-<td>http.headers_config_file</td>
-<td>HTTP custom header configuration file <p>( Default: ./etc/http_custom_header.conf )</p></td>
-</tr>
-<tr>
-<td>http.timeout_for_header</td>
-<td>HTTP timeout for reading header<p>( Default: 5000, Unit: <code class="codehilite">msec</code>)</p></td>
-</tr>
-<tr>
-<td>http.timeout_for_body</td>
-<td>HTTP timeout for reading body<p>( Default: 15000, Unit: <code class="codehilite">msec</code>)</p></td>
-</tr>
-<tr>
-<td><strong>Bucket Related</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>bucket_prop_sync_interval</td>
-<td>Synchronization Interval of Bucket Properties<p>( Default: 300, Unit: <code class="codehilite">sec</code> )</p></td>
-</tr>
-<tr>
-<td><strong>NFS-related configurations</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>nfs.mountd.port</td>
-<td>Mountd’s port number <p>( Default: 22050 )</p></td>
-</tr>
-<tr>
-<td>nfs.mountd.acceptors</td>
-<td>Mountd’s the number of acceptors <p>( Default: 128 )</p></td>
-</tr>
-<tr>
-<td>nfs.nfsd.port</td>
-<td>NFSd’s port number <p>( Default: 2049 )</p></td>
-</tr>
-<tr>
-<td>nfs.nfsd.acceptors</td>
-<td>NFSd’s the number of acceptors <p>( Default: 128 )</p></td>
-</tr>
-<tr>
-<td><strong>Large object processing configuration</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>large_object.max_chunked_objs</td>
-<td>Maximum number of chunked objects <p>( Default: 1000 )</p></td>
-</tr>
-<tr>
-<td>large_object.chunked_obj_len</td>
-<td>Length of a chunked object. This value must be &gt;= <code class="codehilite">large_object.reading_chunked_obj_len</code> <p>( Default: 5242880, Unit: <code class="codehilite">byte</code> )</p></td>
-</tr>
-<tr>
-<td>large_object.threshold_of_chunk_len</td>
-<td>Threshold when object is chunked <p>( Default: 5767168, Unit: <code class="codehilite">byte</code> )</p></td>
-</tr>
-<tr>
-<td>large_object.reading_chunked_obj_len</td>
-<td>Read length of a chunked object. This value must be &lt;= <code class="codehilite">large_object.chunked_obj_len</code> <p>( Default: 5242880, Unit: <code class="codehilite">byte</code> )</p></td>
-</tr>
-<tr>
-<td><strong>Cache configuration</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>cache.http_cache</td>
-<td>Enable HTTP-Cache mode, working like Varnish/Squid. Otherwise as Object Cache<p>( Default: false )</p></td>
-</tr>
-<tr>
-<td>cache.cache_workers</td>
-<td>Number of cache workers <p>( Default: 16 )</p></td>
-</tr>
-<tr>
-<td>cache.cache_ram_capacity</td>
-<td>Memory Cache Capacity, divide across workers. This has to satisfy <code class="codehilite">(8 * 1024 * 1024) * cache.cache_workers &gt;= cache.cache_ram_capacity</code> <p>( Default: 268435456, Unit: <code class="codehilite">byte</code> )</p></td>
-</tr>
-<tr>
-<td>cache.cache_disc_capacity</td>
-<td>Disk Cache Capacity, divide across workers. This has to satisfy <code class="codehilite">(8 * 1024 * 1024) * cache.cache_workers &gt;= cache.cache_disc_capacity</code> <p>( Default: 524288000, Unit: <code class="codehilite">byte</code> )</p></td>
-</tr>
-<tr>
-<td>cache.cache_disc_threshold_len</td>
-<td>Threshold when object is stored in disk cache <p>( Default: 1048576, Unit: <code class="codehilite">byte</code> )</p></td>
-</tr>
-<tr>
-<td>cache.cache_disc_dir_data</td>
-<td>Directory for disk cache data <p>( Default: ./cache/data )</p></td>
-</tr>
-<tr>
-<td>cache.cache_disc_dir_journal</td>
-<td>Directory for disk cache journal <p>( Default: ./cache/journal )</p></td>
-</tr>
-<tr>
-<td><strong>HTTP-Cache related</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>cache.cache_expire</td>
-<td>Cache expiry time <p>( Default: 300, Unit: <code class="codehilite">sec</code>)</p></td>
-</tr>
-<tr>
-<td>cache.cache_max_content_len</td>
-<td>Maximum length of cached object <p>( Default: 1048576, Unit: <code class="codehilite">byte</code> )</td>
-</tr>
-<tr>
-<td>cache.cachable_content_type</td>
-<td>Object types to be cached</td>
-</tr>
-<tr>
-<td>cache.cachable_path_pattern</td>
-<td>Path pattern(s) to be cached (regular expression)</td>
-</tr>
-<tr>
-<td><strong>Watchdog / REX</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>watchdog.rex.is_enabled</td>
-<td>Enables or disables the rex-watchdog which monitors the memory usage of <em>Erlangs RPC component</em>.<p>( Default: true )</p></td>
-</tr>
-<tr>
-<td>watchdog.rex.interval</td>
-<td>An interval of executing the watchdog processing<p>( Default: 10, Unit: <code class="codehilite">sec</code> )</p></td>
-</tr>
-<tr>
-<td><strong>Watchdog / CPU</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>watchdog.cpu.is_enabled</td>
-<td>Enables or disables the CPU-watchdog which monitors both <em>CPU load average</em> and <em>CPU utilization</em><p>( Default: false )</p></td>
-</tr>
-<tr>
-<td>watchdog.cpu.raised_error_times</td>
-<td>Times of raising error to a client<p>( Default: 5 )</p></td>
-</tr>
-<tr>
-<td>watchdog.cpu.interval</td>
-<td>An interval of executing the watchdog processing<p>( Default: 10, Unit: <code class="codehilite">sec</code> )</p></td>
-</tr>
-<tr>
-<td>watchdog.cpu.threshold_cpu_load_avg</td>
-<td>Threshold of CPU load average<p>( Default: 5.0 )</p></td>
-</tr>
-<tr>
-<td>watchdog.cpu.threshold_cpu_util</td>
-<td>Threshold of CPU utilization<p>( Default: 100 )</p></td>
-</tr>
-<tr>
-<td><strong>Watchdog / IO (Erlang VM Internal Traffic)</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>watchdog.io.is_enabled</td>
-<td>Enables or disables the IO-watchdog which monitors the <em>Erlang VM Internal Traffic</em> <p>( Default: false )</p></td>
-</tr>
-<tr>
-<td>watchdog.io.interval</td>
-<td>Watchdog interval <p>( Default: 1, Unit: <code class="codehilite">sec</code> )</p></td>
-</tr>
-<tr>
-<td>watchdog.io.threshold_input_per_sec</td>
-<td>Threshold input per second <p>( Default: 134217728, Unit: <code class="codehilite">byte</code> )</p></td>
-</tr>
-<tr>
-<td>watchdog.io.threshold_output_per_sec</td>
-<td>Threshold output per second <p>( Default: 134217728, Unit: <code class="codehilite">byte</code> )</p></td>
-</tr>
-<tr>
-<td><strong>Timeout</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>timeout.level_1</td>
-<td>Timeout when put object to LeoStorage <em>(~65536 bytes)</em> <p> ( Default: 5000, Unit: <code class="codehilite">msec</code> )</td>
-</tr>
-<tr>
-<td>timeout.level_2</td>
-<td>Timeout when put object to LeoStorage <em>(~131071 bytes)</em> <p> ( Default: 7000, Unit: <code class="codehilite">msec</code> )</td>
-</tr>
-<tr>
-<td>timeout.level_3</td>
-<td>Timeout when put object to LeoStorage <em>(~524287 bytes)</em> <p> ( Default: 10000, Unit: <code class="codehilite">msec</code> )</td>
-</tr>
-<tr>
-<td>timeout.level_4</td>
-<td>Timeout when put object to LeoStorage <em>(~1048576 bytes)</em> <p> ( Default: 20000, Unit: <code class="codehilite">msec</code> )</td>
-</tr>
-<tr>
-<td>timeout.level_5</td>
-<td>Timeout when put object to LeoStorage <em>(1048576~ bytes)</em> <p> ( Default: 30000, Unit: <code class="codehilite">msec</code> )</td>
-</tr>
-<tr>
-<td>timeout.get</td>
-<td>Timeout when get object from LeoStorage<p> ( Default: 30000, Unit: <code class="codehilite">msec</code> )</td>
-</tr>
-<tr>
-<td>timeout.ls</td>
-<td>Timeout when list object from LeoStorage<p> ( Default: 30000, Unit: <code class="codehilite">msec</code> )</td>
-</tr>
-<tr>
-<td><strong>Log</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>log.log_level</td>
-<td>Log level:<ul><li>0:debug</li><li>1:info</li><li>2:warn</li><li>3:error</li></ul><p>( Default: 1 )</p></td>
-</tr>
-<tr>
-<td>log.is_enable_access_log</td>
-<td>Enables or disables the access-log feature<p>( Default: false )</p></td>
-</tr>
-<tr>
-<td>log.erlang</td>
-<td>Destination of log file(s) of Erlang's log<p>( Default: ./log/erlang )</p></td>
-</tr>
-<tr>
-<td>log.app</td>
-<td>Destination of log file(s) of LeoStorage<p>( Default: ./log/app )</p></td>
-</tr>
-<tr>
-<td>log.member_dir</td>
-<td>Destination of log file(s) of members of storage-cluster<p>( Default: ./log/ring )</p></td>
-</tr>
-<tr>
-<td>log.ring_dir</td>
-<td>Destination of log file(s) of RING<p>( Default: ./log/ring )</p></td>
-</tr>
-<tr>
-<td><strong>Other Directories Settings</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>queue_dir</td>
-<td>Directory of queue for monitoring "RING"<p>( Default: ./work/queue )</p></td>
-</tr>
-<tr>
-<td>snmp_agent</td>
-<td>Directory of SNMP agent configuration<p>( Default: ./snmp/snmpa_gateway_0/LEO-GATEWAY )</p></td>
-</tr>
-</tbody>
-</table>
-<h3 id="erlang-vms-related-configurations">Erlang VM's Related Configurations<a class="headerlink" href="#erlang-vms-related-configurations" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Item</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>nodename</td>
-<td>The format of the node name is <code class="codehilite">&lt;NAME&gt;@&lt;IP-ADDRESS&gt;</code>, which must be unique always in a LeoFS system<p>( Default: storage_0@127.0.0.1 )</p></td>
-</tr>
-<tr>
-<td>distributed_cookie</td>
-<td>Sets the magic cookie of the node to <code class="codehilite">Cookie</code>. <br/><br/>- See also: <a href="http://erlang.org/doc/reference_manual/distributed.html" target="_blank">Distributed Erlang</a><p>( Default: 401321b4 )</p></td>
-</tr>
-<tr>
-<td>erlang.kernel_poll</td>
-<td>Kernel poll reduces LeoFS' CPU usage when it has hundreds (or more) network connections.<p>( Default: true )</p></td>
-</tr>
-<tr>
-<td>erlang.asyc_threads</td>
-<td>The total number of Erlang aynch threads<p>( Default: 32 )</p></td>
-</tr>
-<tr>
-<td>erlang.max_ports</td>
-<td>The max_ports sets the default value of maximum number of ports.<br/><br/>- See also: <a href="http://erlang.org/doc/man/erlang.html">Erlang erlang:open_port/2</a><p>( Default: 64000 )</p></td>
-</tr>
-<tr>
-<td>erlang.crash_dump</td>
-<td>The output destination of an Erlang crash dump<p>( Default: ./log/erl_crash.dump )</p></td>
-</tr>
-<tr>
-<td>erlang.max_ets_tables</td>
-<td>The maxinum number of <a href="http://erlang.org/doc/man/ets.html" target="_blank">Erlagn ETS</a> tables<p>( Default: 256000 )</p></td>
-</tr>
-<tr>
-<td>erlang.smp</td>
-<td><code class="codehilite">-smp</code> enable and <code class="codehilite">-smp</code> start the Erlang runtime system with <a href="https://en.wikipedia.org/wiki/Symmetric_multiprocessing" target="_blank">SMP</a> support enabled.<p>( Default: enable )</p></td>
-</tr>
-<tr>
-<td>erlang.schedulers.compaction_of_load</td>
-<td>Enables or disables scheduler compaction of load. If it's enabled, the Erlang VM will attempt to fully load as many scheduler threads as mush as possible.<p>( Default: true )</p></td>
-</tr>
-<tr>
-<td>erlang.schedulers.utilization_balancing</td>
-<td>Enables or disables scheduler utilization balancing of load. By default scheduler utilization balancing is disabled and instead scheduler compaction of load is enabled, which strives for a load distribution that causes as many scheduler threads as possible to be fully loaded (that is, not run out of work).<p>( Default: false )</p></td>
-</tr>
-<tr>
-<td>erlang.distribution_buffer_size</td>
-<td>Sender-side network distribution buffer size <em>(unit: KB)</em><p>( Default: 32768 )</p></td>
-</tr>
-<tr>
-<td>erlang.fullsweep_after</td>
-<td>Option fullsweep_after makes it possible to specify the maximum number of generational collections before forcing a fullsweep, even if there is room on the old heap. Setting the number to zero disables the general collection algorithm, that is, all live data is copied at every garbage collection.<p>( Default: 0 )</p></td>
-</tr>
-<tr>
-<td>erlang.secio</td>
-<td>Enables or disables eager check I/O scheduling. The flag effects when schedulers will check for I/O operations possible to execute, and when such I/O operations will execute.<p>( Default: true )</p></td>
-</tr>
-<tr>
-<td>process_limit</td>
-<td>The maxinum number of Erlang processes. Sets the maximum number of simultaneously existing processes for this system if a Number is passed as value. Valid range for Number is [1024-134217727]<p>( Default: 1048576 )</p></td>
-</tr>
-</tbody>
-</table>
-<h3 id="notes-and-tips-of-the-configuration">Notes and Tips of the Configuration<a class="headerlink" href="#notes-and-tips-of-the-configuration" title="Permanent link">&para;</a></h3>
-<h4 id="cache-consistency-between-leogateway-and-leostorage">Cache Consistency between LeoGateway and LeoStorage<a class="headerlink" href="#cache-consistency-between-leogateway-and-leostorage" title="Permanent link">&para;</a></h4>
-<p>LeoGateway's cache feature does not depend on the consistency level of a cluster. There is a possibility of object inconsistency.</p>
-<p>LeoGateway requests a storage node to compare a cached object's hash value with its stored object's hash value. LeoGateway selects a LeoStorage's node from RING, <em>a distributed hash table</em> by a target object name, then LeoGateway requests a LeoStorage node of the redundant node. If the requested object is inconsistent in the replicas and LeoGateway cached it, a client may get inconsistent objects.</p>
-<p>If strong consistency is required on your system, you can disable the cache setting.</p>
+                <h1 id="environment-config-files">Environment Config Files<a class="headerlink" href="#environment-config-files" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Starting from version 1.3.3, some environment variables used by launch scripts can be redefined in
+"environment" config files. They have shell syntax and are read by launch scripts. Their names are:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cache.cache_ram_capacity = 0
-cache.cache_disc_capacity = 0
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>leo_gateway/etc/leo_gateway.environment
+leo_manager_0/etc/leo_manager.environment
+leo_manager_1/etc/leo_manager.environment
+leo_storage/etc/leo_storage.environment
 </pre></div>
 </td></tr></table>
 
-<h4 id="configuration-related-to-disk-cache">Configuration related to Disk Cache<a class="headerlink" href="#configuration-related-to-disk-cache" title="Permanent link">&para;</a></h4>
-<p>A total number of directories to store cache files is equal to <code class="codehilite">cache.cache_workers</code>. A maximum size of a cacheable object per a directory has been determined by <code class="codehilite">cache.cache_disc_capacity / cache.cache_workers</code>. If size of a requested object more than the maximum size, LeoFS Gateway avoids storing the object into the disk cache.</p>
-<p>And also, when size of a requested object more than <code class="codehilite">cache.cache_max_content_len</code>, LeoFS Gateway similarly refuses storing the object into the disk cache.</p>
-<p><img alt="Figure: Disk Cache Limits" src="../../../assets/leofs-gateway-disk-cache-size.png" /></p>
-<h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../../architecture/leo_gateway/">Concept and Architecture / LeoGateway's Architecture</a></li>
-<li><a href="../../protocols/s3/">For Administrators / Interface / S3-API</a></li>
-<li><a href="../../protocols/rest/">For Administrators / Interface / REST-API</a></li>
-<li><a href="../../protocols/nfs_v3/">For Administrators / Interface / NFS v3</a></li>
-<li><a href="../../system_operations/s3/">For Administrators / System Operations / S3-API related Operations</a></li>
-</ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p><a href="http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html" target="_blank">Amazon S3 API</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p><a href="https://de.wikipedia.org/wiki/Network_File_System" target="_blank">Wikipedia: Network File System</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<p>Changing settings in these files is completely optional, but can be used to better organize directories
+used by LeoFS nodes and simplify upgrades. Here is highly customized example of <code class="codehilite"><span class="na">.environment</span></code> and <code class="codehilite"><span class="na">.config</span></code> files that allow LeoFS to store all work information and logs outside of default installation tree (<code class="codehilite">/usr/local/leofs/&lt;version&gt;</code>).
+As a result, upgrade process to newer version becomes as simple as placing <code class="codehilite">leo_*.environment</code> files in <code class="codehilite">etc</code> directory of new version, for example (for <code class="codehilite">leo_manager_0</code>):</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ /usr/local/leofs/&lt;old_version&gt;/leo_manager_0/bin/leo_manager stop
+$ cp /usr/local/leofs/&lt;old_version&gt;/leo_manager_0/etc/leo_manager.environment /usr/local/leofs/&lt;new_version&gt;/leo_manager_0/etc/
+$ /usr/local/leofs/&lt;new_version&gt;/leo_manager_0/bin/leo_manager start
+</pre></div>
+</td></tr></table>
+
+<p>With this, users can place actual config files (like <code class="codehilite">leo_manager.conf</code>) to directory of their choice and change them independently of version upgrades, and the <code class="codehilite"><span class="na">.environment</span></code> files that need to be placed into installation tree don't need to be changed between versions.  With the correct setup, since no work/temporary files will be kept in the installation tree, old version can be removed cleanly.</p>
+<h2 id="example-configuration">Example Configuration<a class="headerlink" href="#example-configuration" title="Permanent link">&para;</a></h2>
+<p>Contents of <code class="codehilite">/usr/local/leofs/&lt;version&gt;/leo_manager_0/etc/leo_manager.environment</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span># pick config file from fixed place
+RUNNER_ETC_DIR=/etc/leofs/leo_manager_0
+# store erlang.log.* and run_erl.log in this directory
+RUNNER_LOG_DIR=/var/log/leofs/leo_manager_0
+</pre></div>
+</td></tr></table>
+
+<p>Directories defined in RUNNER_ETC_DIR and RUNNER_LOG_DIR (in this example, <code class="codehilite">/etc/leofs/leo_manager_0</code> and
+<code class="codehilite">/var/log/leofs/leo_manager_0</code>) must be writable by <code class="codehilite">leofs</code> user, also <code class="codehilite">$RUNNER_LOG_DIR/sasl</code> (here
+<code class="codehilite">/var/log/leofs/leo_manager_0/sasl</code>) must exist:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>drwxr-xr-x. 2 leofs leofs 4096 Apr  4 20:40 /etc/leofs/leo_manager_0/
+drwxr-xr-x. 4 leofs leofs 4096 Apr  5 20:00 /var/log/leofs/leo_manager_0/
+drwxr-xr-x. 2 leofs leofs 4096 Apr  4 20:40 /var/log/leofs/leo_manager_0/sasl/
+</pre></div>
+</td></tr></table>
+
+<p>In <code class="codehilite">leo_manager.conf</code>, all options related to directories should point to external paths:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sasl.sasl_error_log = /var/log/leofs/leo_manager_0/sasl/sasl-error.log
+sasl.error_logger_mf_dir = /var/log/leofs/leo_manager_0/sasl
+mnesia.dir = /var/local/leofs/leo_manager_0/work/mnesia/127.0.0.1
+queue_dir = /var/local/leofs/leo_manager_0/work/queue
+log.erlang = /var/log/leofs/leo_manager_0/erlang
+log.app = /var/log/leofs/leo_manager_0/app
+log.member_dir = /var/log/leofs/leo_manager_0/ring
+log.ring_dir = /var/log/leofs/leo_manager_0/ring
+erlang.crash_dump = /var/log/leofs/leo_manager_0/erl_crash.dump
+</pre></div>
+</td></tr></table>
+
+<p>For <code class="codehilite">leo_storage.conf</code> it will be:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sasl.sasl_error_log = /var/log/leofs/leo_storage/sasl/sasl-error.log
+sasl.error_logger_mf_dir = /var/log/leofs/leo_storage/sasl
+obj_containers.path = [/mnt/avs]
+log.erlang = /var/log/leofs/leo_storage/erlang
+log.app = /var/log/leofs/leo_storage/app
+log.member_dir = /var/log/leofs/leo_storage/ring
+log.ring_dir = /var/log/leofs/leo_storage/ring
+queue_dir  = /var/local/leofs/leo_storage/work/queue
+leo_ordning_reda.temp_stacked_dir = /var/local/leofs/leo_storage/work/ord_reda/
+erlang.crash_dump = /var/log/leofs/leo_storage/erl_crash.dump
+</pre></div>
+</td></tr></table>
+
+<p>For <code class="codehilite">leo_gateway.conf</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sasl.sasl_error_log = /var/log/leofs/leo_gateway/sasl/sasl-error.log
+sasl.error_logger_mf_dir = /var/log/leofs/leo_gateway/sasl
+log.erlang = /var/log/leofs/leo_gateway/erlang
+log.app = /var/log/leofs/leo_gateway/app
+log.member_dir = /var/log/leofs/leo_gateway/ring
+log.ring_dir = /var/log/leofs/leo_gateway/ring
+cache.cache_disc_dir_data = /var/local/leofs/leo_gateway/cache/data
+cache.cache_disc_dir_journal = /var/local/leofs/leo_gateway/cache/journal
+queue_dir = /var/local/leofs/leo_gateway/work/queue
+erlang.crash_dump = /var/log/leofs/leo_gateway/erl_crash.dump
+</pre></div>
+</td></tr></table>
+
+<p>Of course, all these directories must exist and have correct ownership/permissions (writable by <code class="codehilite">leofs</code> user, unless set up otherwise)</p>
+<h2 id="additional-settings-snmp-config">Additional settings - SNMP config<a class="headerlink" href="#additional-settings-snmp-config" title="Permanent link">&para;</a></h2>
+<p>When pursuing "pure" system which keeps all the data out of installation tree, one might also decide to move SNMP agent config and SNMP "db" directories to external paths, by setting (example for <code class="codehilite">leo_manager_0</code>) this in <code class="codehilite">leo_manager.config</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>snmp_conf = /etc/leofs/leo_manager_0/leo_manager_snmp
+</pre></div>
+</td></tr></table>
+
+<p>then copying <code class="codehilite">/usr/local/leofs/&lt;version&gt;/leo_manager_0/snmp/snmpa_manager_0/leo_manager_snmp.config</code> to
+<code class="codehilite">/etc/leofs/leo_manager_0/leo_manager_snmp</code> and setting</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{db_dir, &quot;/var/local/leofs/leo_manager_0/snmp_db&quot;},
+</pre></div>
+</td></tr></table>
+
+<p>in <code class="codehilite">/etc/leofs/leo_manager_0/leo_manager_snmp.config</code> to make sure that absolutely no temporary files are created in <code class="codehilite">/usr/local/leofs</code> tree. It shouldn't matter otherwise since there is no need to keep contents of SNMP <code class="codehilite">db</code> directory between upgrades. (Here, copy of leo_manager_snmp.config was made so that original config would be untouched; while it is possible to change <code class="codehilite">db_dir</code> in original <code class="codehilite">/usr/local/leofs/&lt;version&gt;/leo_manager_0/snmp/snmpa_manager_0/leo_manager_snmp.config</code> as well, doing so would mean that this file needs to be replaced after each upgrade, reducing benefit of only changing <code class="codehilite"><span class="na">.environment</span></code> file after upgrade)</p>
+<h2 id="notice">Notice<a class="headerlink" href="#notice" title="Permanent link">&para;</a></h2>
+<p>Please note that this configuration is just an example of how to use <code class="codehilite"><span class="na">.environment</span></code> config features to move all the log files and config files out of the tree so they reside at fixed paths, to simplify configuration changes and upgrades as much as possible. The resulting upgrade process can be less safe than original one suggested at <a href="http://leo-project.net/leofs/docs/admin_guide/admin_guide_10.html">System Maintenance</a>, because new version changes working mnesia and queue directories upon launch and going back to the older version might be not always possible. Users should consider making backups of work directories (<code class="codehilite">/var/local/leofs</code> in this example) before launching the newer version of a node.</p>
                 
                   
                 
@@ -1499,7 +1147,7 @@ cache.cache_disc_capacity = 0
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../leo_storage/" title="LeoStroage Settings" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../cluster/" title="Cluster Settings" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1508,19 +1156,19 @@ cache.cache_disc_capacity = 0
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                LeoStroage Settings
+                Cluster Settings
               </span>
             </div>
           </a>
         
         
-          <a href="../../protocols/s3/" title="S3-API" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../leo_manager/" title="LeoManager Settings" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                S3-API
+                LeoManager Settings
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
