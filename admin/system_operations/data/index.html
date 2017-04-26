@@ -1156,39 +1156,49 @@
 <h3 id="kvs-for-metadata">KVS for Metadata<a class="headerlink" href="#kvs-for-metadata" title="Permanent link">&para;</a></h3>
 <p>After having succeeded in appending new blocks to an AVS, then leo_object_storage updates a corresponding <strong>KVS</strong> file with the key and its associated metadata (same information stored in the AVS except the data itself) and its offset where the new blocks stored in AVS as a value. This KVS file is referenced when retrieving the data/metadata through GET/HEAD RPCs.</p>
 <h3 id="queue-for-async-operations">Queue for Async Operations<a class="headerlink" href="#queue-for-async-operations" title="Permanent link">&para;</a></h3>
-<p>Some data can be stored into a <strong>Queue</strong> for processing later in case
-- A PUT/DELETE operation failed.
-- A Multi DC Replication (<strong>MDCR</strong>) failed.
-- rebalance/recover-(file|node|cluster) invoked through leofs-adm.</p>
+<p>Some data can be stored into a <strong>Queue</strong> for processing later in case</p>
+<ul>
+<li>A PUT/DELETE operation failed.</li>
+<li>A Multi DC Replication (<strong>MDCR</strong>) failed.</li>
+<li>rebalance/recover-(file|node|cluster) invoked through leofs-adm.</li>
+</ul>
 <h3 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link">&para;</a></h3>
 <p>Multiple AVS/KVS pairs can be placed on one node to enable LeoFS handling as much use cases and hardware requirements as possible.</p>
 <ul>
-<li>Container : AVS/KVS pair = 1 : N</li>
+<li>Container : AVS/KVS pair = 1 : N<ul>
 <li>Multiple AVS/KVS pairs can be stored under one OS directory (We call it <strong>Container</strong>).</li>
 <li>N can be specified through leo_storage.conf.</li>
 <li>How to choose optimal N<ul>
 <li>As a Compaction is executed per AVS/KVS pair, at least the size of a AVS/KVS pair is needed to run Compaction so that the larger N, the less disk space LeoFS uses for Compaction.</li>
 <li>However the larger N, the more disk seeks LeoFS suffers.</li>
-<li>Tha said, the optimal N is determined by setting the largest value that doesn't affect the online throughput you would expect. </li>
+<li>Tha said, the optimal N is determined by setting the largest value that doesn't affect the online throughput you would expect.</li>
 </ul>
 </li>
-<li>Node : Container = 1 : N</li>
+</ul>
+</li>
+<li>Node : Container = 1 : N<ul>
 <li>Each Container can be stored under a different OS directory.</li>
 <li>N can be specified through leo_storage.conf.</li>
 <li>Setting N &gt; 1 can be useful when there are multiple JBOD disks on the node. The one JBOD disk array can be map to the one container.</li>
 </ul>
+</li>
+</ul>
 <h3 id="compaction">Compaction<a class="headerlink" href="#compaction" title="Permanent link">&para;</a></h3>
 <p>This section provides information about what/how Compaction can affect the online performance. </p>
 <ul>
-<li>Parallelism</li>
+<li>Parallelism<ul>
 <li>A Compaction can be executed across multiple AVS/KVS pairs in parallel.</li>
 <li>The number of compaction processes can be specified through an argument of leofs-adm.</li>
 <li>Increasing the number can be useful when the load coming from online is relatively low and want the compaction process to boost as much as possible.</li>
-<li>Be careful that too much number can make the compaction process slow down. </li>
-<li>Concurrent with any operation coming from online.</li>
+<li>Be careful that too much number can make the compaction process slow down.</li>
+</ul>
+</li>
+<li>Concurrent with any operation coming from online.<ul>
 <li>GET/HEAD never be blocked by the Compaction.</li>
 <li>PUT/DELETE can be blocked while a Compaction is processing the tail part of an AVS.</li>
-<li>Given that the above limitation, We would recommend suspending a node you are supposed to run a Compaction if your LeoFS cluster handles write intensive workload. </li>
+<li>Given that the above limitation, We would recommend suspending a node you are supposed to run a Compaction if your LeoFS cluster handles write intensive workload.</li>
+</ul>
+</li>
 </ul>
 <h2 id="compaction_1">Compaction<a class="headerlink" href="#compaction_1" title="Permanent link">&para;</a></h2>
 <p>As described at the previous section, A compaction process is needed to remove logical deleted objects and its corresponding metadatas.</p>
@@ -1242,8 +1252,10 @@
 </tr>
 </tbody>
 </table>
-<p>Examples.
-- compact-start</p>
+<p>Examples.</p>
+<ul>
+<li>compact-start</li>
+</ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1456,10 +1468,6 @@ The detail of each column are described below.</p>
 </thead>
 <tbody>
 <tr>
-<td><strong>Compaction Commands</strong></td>
-<td></td>
-</tr>
-<tr>
 <td>leofs-adm recover-file \&lt;file-path></td>
 <td>Recover an inconsistent object specified by the file-path.</td>
 </tr>
@@ -1473,8 +1481,10 @@ The detail of each column are described below.</p>
 </tr>
 </tbody>
 </table>
-<p>Examples.
-- recover-file</p>
+<p>Examples.</p>
+<ul>
+<li>recover-file</li>
+</ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ leofs-adm recover-file leo/fast/storage.key
 OK
@@ -1502,27 +1512,39 @@ OK
 <h3 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h3>
 <p>When/How to use recover commands.</p>
 <ul>
-<li>AVS/KVS Broken</li>
+<li>AVS/KVS Broken<ul>
 <li>Invoke <code class="codehilite">recover-node</code> with a node having broken AVS/KVS files.</li>
-<li>Queue Broken</li>
+</ul>
+</li>
+<li>Queue Broken<ul>
 <li>Invoke <code class="codehilite">recover-node</code> with every node except which having broken Queue files.</li>
-<li>The procedure might be improved in future when <a href="https://github.com/leo-project/leofs/issues/618">https://github.com/leo-project/leofs/issues/618</a> solved. </li>
-<li>Disk Broken</li>
+<li>The procedure might be improved in future when <a href="https://github.com/leo-project/leofs/issues/618">https://github.com/leo-project/leofs/issues/618</a> solved.</li>
+</ul>
+</li>
+<li>Disk Broken<ul>
 <li>Invoke <code class="codehilite">suspend</code> with a node having broken Disk arrays and subsequently run <code class="codehilite">leo_storage stop</code>.</li>
 <li>Exchange broken Disk arrays.</li>
 <li>Run <code class="codehilite">leo_storage start</code> and subsequently Invoke <code class="codehilite">resume</code> with the node.</li>
 <li>Invoke <code class="codehilite">recover-node</code> with the node.</li>
-<li>Node Broken</li>
+</ul>
+</li>
+<li>Node Broken<ul>
 <li>Invoke <code class="codehilite">detach</code> with a broken node.</li>
 <li>Prepare a new node that will take over all objects assigned to a detached node.</li>
 <li>Invoke <code class="codehilite">attach</code> with a new node.</li>
 <li>Invoke <code class="codehilite">rebalance</code>.</li>
-<li>Source/Destination Cluster Down</li>
+</ul>
+</li>
+<li>Source/Destination Cluster Down<ul>
 <li>Invoke <code class="codehilite">recover-cluster</code> with a downed cluster.</li>
-<li>Source/Destination Cluster Down and delete operations on the other side got lost (compacted).</li>
+</ul>
+</li>
+<li>Source/Destination Cluster Down and delete operations on the other side got lost (compacted).<ul>
 <li>Set up the cluster from scratch</li>
 <li>invoke <code class="codehilite">recover-cluster</code> with the new cluster</li>
 <li>See also <a href="https://github.com/leo-project/leofs/issues/636">https://github.com/leo-project/leofs/issues/636</a> for more information.</li>
+</ul>
+</li>
 </ul>
                 
                   
