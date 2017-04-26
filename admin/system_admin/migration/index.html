@@ -843,6 +843,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#note-for-developers" title="Note for Developers" class="md-nav__link">
+    Note for Developers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#related-links" title="Related Links" class="md-nav__link">
     Related Links
   </a>
@@ -1110,6 +1117,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#note-for-developers" title="Note for Developers" class="md-nav__link">
+    Note for Developers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#related-links" title="Related Links" class="md-nav__link">
     Related Links
   </a>
@@ -1211,6 +1225,12 @@ some environment variables like paths in launch script. Please refere <a href=".
 </td></tr></table>
 
 <p>Please note that switching this node to run as non-privileged user later will require extra steps to carefully change all permissions. This is not recommended, but possible (at very least, in addition to <code class="codehilite">chown</code> commands from before, permissions of <code class="codehilite">leo_*/etc</code> and <code class="codehilite">leo_*/snmp/*/db</code> will have to be changed recursively as well).</p>
+<h2 id="note-for-developers">Note for Developers<a class="headerlink" href="#note-for-developers" title="Permanent link">&para;</a></h2>
+<p>As described at the previous section, The default user running LeoFS processes has changed to <code class="codehilite">leofs</code> so that requires developers to</p>
+<ul>
+<li>Tweak environment config files to set <strong>RUNNER_USER</strong> to the user you have logged in while developing with <strong>make release/bootstrap.sh/mdcr.sh</strong>.</li>
+<li>Remove all files under <strong>$PIPE_DIR</strong> before starting any LeoFS processes.</li>
+</ul>
 <h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../settings/environment_config/">For Administrators / Settings / Environment Configuration</a></li>
