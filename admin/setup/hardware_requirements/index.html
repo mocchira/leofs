@@ -719,18 +719,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../system_operations/others/" title="Others" class="md-nav__link">
-      Others
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -773,44 +761,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../system_admin/leo_manager/" title="LeoManager's Maintenance" class="md-nav__link">
-      LeoManager's Maintenance
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../system_admin/monitoring/" title="System Monitoring" class="md-nav__link">
-      System Monitoring
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../system_admin/migration/" title="System Migration" class="md-nav__link">
       System Migration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../system_admin/backup_and_restore/" title="Backup and Restore" class="md-nav__link">
-      Backup and Restore
     </a>
   </li>
 
@@ -840,18 +792,6 @@
   <li class="md-nav__item">
     <a href="../../index_of_commands/" title="Index of LeoFS' Commands" class="md-nav__link">
       Index of LeoFS' Commands
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../troubleshooting/" title="Troubleshooting" class="md-nav__link">
-      Troubleshooting
     </a>
   </li>
 
@@ -1057,11 +997,11 @@
 </table>
 <h2 id="hardware-recommendation">Hardware Recommendation<a class="headerlink" href="#hardware-recommendation" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Workload on Manager is low, it does not consume much resource</li>
-<li>Better CPU allows LeoFS to process more operations (OPS)</li>
-<li>Gateway utilizes memory and disk as cache, adding those resources can reduce the workload to Storage</li>
-<li>SSD significantly improves small object read performance</li>
-<li>10Gbps network is recommended</li>
+<li><strong>Workload on Manager is low</strong>, it does not consume many resources</li>
+<li><strong>Better CPU allows LeoGateway</strong> to process more operations (OPS, <em>Operation Per Second</em>)</li>
+<li>LeoGateway utilizes <strong>memory and disk as cache</strong>, adding those resources can reduce the workload to LeoStorage</li>
+<li><strong>SSD</strong> on a LeoStoage node significantly improves small object read performance</li>
+<li><strong>10Gbps network</strong> is recommended</li>
 </ol>
 <h2 id="reference-platform">Reference Platform<a class="headerlink" href="#reference-platform" title="Permanent link">&para;</a></h2>
 <table>
@@ -1103,14 +1043,14 @@
 <tbody>
 <tr>
 <td>Image (32KB)</td>
-<td>20000 OPS</td>
-<td>20000 OPS</td>
+<td>20,000 OPS</td>
+<td>20,000 OPS</td>
 <td>High CPU Usage</td>
 </tr>
 <tr>
 <td>Small Mixed (&lt;2MB)</td>
-<td>1200 OPS</td>
-<td>1500 OPS</td>
+<td>1,200 OPS</td>
+<td>1,500 OPS</td>
 <td>High Disk I/O</td>
 </tr>
 </tbody>
@@ -1198,6 +1138,8 @@
       
     
     
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-5301881-3","leo-project.net"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
       
     
   </body>

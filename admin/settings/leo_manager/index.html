@@ -732,18 +732,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../system_operations/others/" title="Others" class="md-nav__link">
-      Others
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -786,44 +774,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../system_admin/leo_manager/" title="LeoManager's Maintenance" class="md-nav__link">
-      LeoManager's Maintenance
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../system_admin/monitoring/" title="System Monitoring" class="md-nav__link">
-      System Monitoring
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../system_admin/migration/" title="System Migration" class="md-nav__link">
       System Migration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../system_admin/backup_and_restore/" title="Backup and Restore" class="md-nav__link">
-      Backup and Restore
     </a>
   </li>
 
@@ -853,18 +805,6 @@
   <li class="md-nav__item">
     <a href="../../index_of_commands/" title="Index of LeoFS' Commands" class="md-nav__link">
       Index of LeoFS' Commands
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../troubleshooting/" title="Troubleshooting" class="md-nav__link">
-      Troubleshooting
     </a>
   </li>
 
@@ -1053,11 +993,10 @@
 <h2 id="prior-knowledge">Prior Knowledge<a class="headerlink" href="#prior-knowledge" title="Permanent link">&para;</a></h2>
 <p>The current version, v1.3 of LeoManager depends on <a href="http://erlang.org/doc/man/mnesia.html" target="_blank">Erlang Mnesia, A distributed telecommunications DBMS</a> to manage configurations of a LeoFS system and information of all nodes. LeoManager nodes must keep running to replicate the data for preventing data loss. You need to configure both LeoManager master and the slave.</p>
 <h3 id="other-configurations">Other Configurations<a class="headerlink" href="#other-configurations" title="Permanent link">&para;</a></h3>
-<p>If you want to customize settings like where to place leo_manager.conf, what user starting a leo_manager process and so on,
-Please refer <a href="../environment_config/">For Administrators / Settings / Environment Configuration</a> for more information.</p>
+<p>If you want to modify settings like where to place <code class="codehilite">leo_manager.conf</code>, what user is starting a LeoManager process and so on, refer <a href="../environment_config/">For Administrators / Settings / Environment Configuration</a> for more information.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>There are some condfiguration differences between LeoManager master and LeoManager slave. LeoManager master only has <code class="codehilite">the consistency level</code> and <code class="codehilite">the multi datacenter replication</code>.</p>
-<p>The default setting is to launch a LeoFS system on one node, whose setting cannot replicate data because the total number of replica is one, and data loss could be happened with high probability. You need to modify the configuration suitably before launching the LeoFS system on your production or other environments.</p>
+<p>There are some configuration differences between LeoManager-master and LeoManager-slave. LeoManager-master only has <code class="codehilite">the consistency level</code> and <code class="codehilite">the multi datacenter replication</code>.</p>
+<p>The default setting is to launch a LeoFS system on one node, whose setting cannot replicate data because the total number of the replica is one, and data loss could happen with high probability. You need to modify the configuration suitably before launching the LeoFS system on your production or other environments.</p>
 <h3 id="leomanager-configurations">LeoManager Configurations<a class="headerlink" href="#leomanager-configurations" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1137,11 +1076,23 @@ Please refer <a href="../environment_config/">For Administrators / Settings / En
 </tr>
 <tr>
 <td>mdc_replication.max_targets</td>
-<td>The maximum number of replication targets of clusters OR data centers<br/>( Default: 2 )</td>
+<td><code class="codehilite">only LeoManager&#39;s master</code><br/> The maximum number of replication targets of clusters OR data centers<br/>( Default: 2 )</td>
 </tr>
 <tr>
-<td>mdc_replication. num_of_replicas_a_dc</td>
-<td>An object is transmitted to a remote cluster or data center, and the total number of object copies per a data center is this configuration<br/>( Default: 1 )</td>
+<td>mdc_replication.num_of_replicas_a_dc</td>
+<td><code class="codehilite">only LeoManager&#39;s master</code><br/> A remote cluster of a LeoFS system which receives this cluster's objects, and then replicates them, which adhere to a replication method of each object<br/>( Default: 1 )</td>
+</tr>
+<tr>
+<td>mdc_replication.consistency.write</td>
+<td><code class="codehilite">only LeoManager&#39;s master</code> <code class="codehilite">[since 1.3.3]</code> <br/> A number of replicas needed for a successful WRITE-operation<br/>( Default: 1 )</td>
+</tr>
+<tr>
+<td>mdc_replication.consistency.read</td>
+<td><code class="codehilite">only LeoManager&#39;s master</code> <code class="codehilite">[since 1.3.3]</code> <br/> A number of replicas needed for a successful READ-operation<br/>( Default: 1 )</td>
+</tr>
+<tr>
+<td>mdc_replication.consistency.delete</td>
+<td><code class="codehilite">only LeoManager&#39;s master</code> <code class="codehilite">[since 1.3.3]</code> <br/> A number of replicas needed for a successful DELETE-operation<br/>( Default: 1 )</td>
 </tr>
 <tr>
 <td><strong>RPC for Multi Datacenter Replication</strong></td>
@@ -1273,6 +1224,7 @@ Please refer <a href="../environment_config/">For Administrators / Settings / En
 <li><a href="../../../architecture/leo_manager/">Concept and Architecture / LeoManager's Architecture</a></li>
 <li><a href="../cluster/">For Administrators / Settings / Cluster Settings</a></li>
 <li><a href="../environment_config/">For Administrators / Settings / Environment Configuration</a></li>
+<li><a href="../../system_operations/multi_dc_replication/">For Administrators / System Operations / Multi Data Center Replication</a></li>
 </ul>
                 
                   
@@ -1352,6 +1304,8 @@ Please refer <a href="../environment_config/">For Administrators / Settings / En
       
     
     
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-5301881-3","leo-project.net"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
       
     
   </body>

@@ -275,8 +275,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" title="Installation" class="md-nav__link">
-    Installation
+  <a href="#installation-v133-or-later" title="Installation v1.3.3 or Later" class="md-nav__link">
+    Installation v1.3.3 or Later
   </a>
   
     <nav class="md-nav">
@@ -362,8 +362,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#launches-each-node-of-leomanager-leostorage-and-leogateway" title="Launches each node of LeoManager, LeoStorage and LeoGateway" class="md-nav__link">
-    Launches each node of LeoManager, LeoStorage and LeoGateway
+  <a href="#launches-leomanager-leostorage-and-leogateway-nodes" title="Launches LeoManager, LeoStorage, and LeoGateway node(s)" class="md-nav__link">
+    Launches LeoManager, LeoStorage, and LeoGateway node(s)
   </a>
   
     <nav class="md-nav">
@@ -827,18 +827,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../admin/system_operations/others/" title="Others" class="md-nav__link">
-      Others
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -881,44 +869,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../admin/system_admin/leo_manager/" title="LeoManager's Maintenance" class="md-nav__link">
-      LeoManager's Maintenance
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../admin/system_admin/monitoring/" title="System Monitoring" class="md-nav__link">
-      System Monitoring
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../admin/system_admin/migration/" title="System Migration" class="md-nav__link">
       System Migration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../admin/system_admin/backup_and_restore/" title="Backup and Restore" class="md-nav__link">
-      Backup and Restore
     </a>
   </li>
 
@@ -948,18 +900,6 @@
   <li class="md-nav__item">
     <a href="../../admin/index_of_commands/" title="Index of LeoFS' Commands" class="md-nav__link">
       Index of LeoFS' Commands
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../admin/troubleshooting/" title="Troubleshooting" class="md-nav__link">
-      Troubleshooting
     </a>
   </li>
 
@@ -1088,8 +1028,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" title="Installation" class="md-nav__link">
-    Installation
+  <a href="#installation-v133-or-later" title="Installation v1.3.3 or Later" class="md-nav__link">
+    Installation v1.3.3 or Later
   </a>
   
     <nav class="md-nav">
@@ -1175,8 +1115,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#launches-each-node-of-leomanager-leostorage-and-leogateway" title="Launches each node of LeoManager, LeoStorage and LeoGateway" class="md-nav__link">
-    Launches each node of LeoManager, LeoStorage and LeoGateway
+  <a href="#launches-leomanager-leostorage-and-leogateway-nodes" title="Launches LeoManager, LeoStorage, and LeoGateway node(s)" class="md-nav__link">
+    Launches LeoManager, LeoStorage, and LeoGateway node(s)
   </a>
   
     <nav class="md-nav">
@@ -1250,7 +1190,7 @@
 <p>This section is a step by step guide to setting up LeoFS for the first time. By following this tutorial you're able to easily build a stand-alone LeoFS system.</p>
 <h2 id="note">Note<a class="headerlink" href="#note" title="Permanent link">&para;</a></h2>
 <p>In this section, you install LeoStorage, LeoGateway and LeoManager on a single system with no clustering to quickly understand LeoFS.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<h2 id="installation-v133-or-later">Installation v1.3.3 or Later<a class="headerlink" href="#installation-v133-or-later" title="Permanent link">&para;</a></h2>
 <h3 id="ubuntu">Ubuntu<a class="headerlink" href="#ubuntu" title="Permanent link">&para;</a></h3>
 <p>For Ubuntu distributions, perform the following steps:</p>
 <ol>
@@ -1263,12 +1203,12 @@
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ wget https://github.com/leo-project/leofs/releases/download/{VERSION}/leofs_{VERSION}-1_ubuntu-16.04_amd64.deb
-$ sudo dpkg -i leofs_{VERSION}-1_ubuntu-16.04_amd64.deb
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ wget https://github.com/leo-project/leofs/releases/download/{VERSION}/leofs_{VERSION}-1_erl-18.3_ubuntu-16.04_amd64.deb
+$ sudo dpkg -i leofs_{VERSION}-1_erl-18.3_ubuntu-16.04_amd64.deb
 $ ls -l /usr/local/leofs/
 total 4
 drwxr-xr-x 6 root   root   4096 Jan 20 00:00 {VERSION}
-$ chown -R {USER}:{GROUP} /usr/local/leofs/{VERSION}
+$ chown -R leofs:leofs /usr/local/leofs/{VERSION}
 </pre></div>
 </td></tr></table>
 
@@ -1278,12 +1218,12 @@ $ chown -R {USER}:{GROUP} /usr/local/leofs/{VERSION}
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ wget https://github.com/leo-project/leofs/releases/download/{VERSION}/leofs_{VERSION}-1_ubuntu-14.04_amd64.deb
-$ sudo dpkg -i leofs_{VERSION}-1_ubuntu-14.04_amd64.deb
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ wget https://github.com/leo-project/leofs/releases/download/{VERSION}/leofs_{VERSION}-1_erl-18.3_ubuntu-14.04_amd64.deb
+$ sudo dpkg -i leofs_{VERSION}-1_erl-18.3_ubuntu-14.04_amd64.deb
 $ ls -l /usr/local/leofs/
 total 4
 drwxr-xr-x 6 root   root   4096 Jan 20 00:00 {VERSION}
-$ chown -R {USER}:{GROUP} /usr/local/leofs/{VERSION}
+$ chown -R leofs:leofs /usr/local/leofs/{VERSION}
 </pre></div>
 </td></tr></table>
 
@@ -1299,12 +1239,12 @@ $ chown -R {USER}:{GROUP} /usr/local/leofs/{VERSION}
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ https://github.com/leo-project/leofs/releases/download/{VERSION}/leofs-{VERSION}-1.el6.x86_64.rpm
-$ sudo rpm -ivh leofs-{VERSION}-1.el6.x86_64.rpm
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ wget https://github.com/leo-project/leofs/releases/download/{VERSION}/leofs-{VERSION}-1.erl-18.3.el6.x86_64.rpm
+$ sudo rpm -ivh leofs-{VERSION}-1.erl-18.3.el6.x86_64.rpm
 $ ls -l /usr/local/leofs/
 total 4
 drwxr-xr-x 6 root   root   4096 Jan 20 15:37 {VERSION}
-$ chown -R {USER}:{GROUP} /usr/local/leofs/{VERSION}
+$ chown -R leofs:leofs /usr/local/leofs/{VERSION}
 </pre></div>
 </td></tr></table>
 
@@ -1314,12 +1254,12 @@ $ chown -R {USER}:{GROUP} /usr/local/leofs/{VERSION}
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ https://github.com/leo-project/leofs/releases/download/{VERSION}/leofs-{VERSION}-1.el7.x86_64.rpm
-$ sudo rpm -ivh leofs-{VERSION}-1.el7.x86_64.rpm
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ wget https://github.com/leo-project/leofs/releases/download/{VERSION}/leofs-{VERSION}-1.erl-18.3.el7.x86_64.rpm
+$ sudo rpm -ivh leofs-{VERSION}-1.erl-18.3.el7.x86_64.rpm
 $ ls -l /usr/local/leofs/
 total 4
 drwxr-xr-x 6 root   root   4096 Jan 20 15:37 {VERSION}
-$ chown -R {USER}:{GROUP} /usr/local/leofs/{VERSION}
+$ chown -R leofs:leofs /usr/local/leofs/{VERSION}
 </pre></div>
 </td></tr></table>
 
@@ -1338,7 +1278,7 @@ $ sudo vi /etc/hosts
 </pre></div>
 </td></tr></table>
 
-<h2 id="launches-each-node-of-leomanager-leostorage-and-leogateway">Launches each node of LeoManager, LeoStorage and LeoGateway<a class="headerlink" href="#launches-each-node-of-leomanager-leostorage-and-leogateway" title="Permanent link">&para;</a></h2>
+<h2 id="launches-leomanager-leostorage-and-leogateway-nodes">Launches LeoManager, LeoStorage, and LeoGateway node(s)<a class="headerlink" href="#launches-leomanager-leostorage-and-leogateway-nodes" title="Permanent link">&para;</a></h2>
 <p>You launch the LeoFS storage system by the following steps:</p>
 <ol>
 <li>There is only single replica by <a href="https://github.com/leo-project/leofs/blob/master/apps/leo_manager/priv/leo_manager_0.conf#L68" target="_blank">the default configuration of <code class="codehilite">consistency.num_of_replicas</code></a></li>
@@ -1392,14 +1332,17 @@ $ leo_gateway/bin/leo_gateway start
 31
 32
 33
-34</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ leofs-adm status
+34
+35
+36
+37</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ leofs-adm status
  [System Confiuration]
 -----------------------------------+----------
  Item                              | Value
 -----------------------------------+----------
  Basic/Consistency level
 -----------------------------------+----------
-                    system version | 1.3.2
+                    system version | 1.3.3
                         cluster Id | leofs_1
                              DC Id | dc_1
                     Total replicas | 1
@@ -1411,20 +1354,23 @@ $ leo_gateway/bin/leo_gateway start
 -----------------------------------+----------
  Multi DC replication settings
 -----------------------------------+----------
-        max number of joinable DCs | 2
-           number of replicas a DC | 1
+ [mdcr] max number of joinable DCs | 2
+ [mdcr] total replicas per a DC    | 1
+ [mdcr] number of successes of R   | 1
+ [mdcr] number of successes of W   | 1
+ [mdcr] number of successes of D   | 1
 -----------------------------------+----------
  Manager RING hash
 -----------------------------------+----------
-                 current ring-hash |
-                previous ring-hash |
+                 current ring-hash | 433fe365
+                previous ring-hash | 433fe365
 -----------------------------------+----------
 
  [State of Node(s)]
 -------+--------------------------+--------------+----------------+----------------+----------------------------
  type  |           node           |    state     |  current ring  |   prev ring    |          updated at
 -------+--------------------------+--------------+----------------+----------------+----------------------------
-  S    | storage_0@127.0.0.1      | attached     |                |                | 2017-01-30 11:01:35 +0900
+  S    | storage_0@127.0.0.1      | attached     |                |                | 2017-05-01 00:43:06 +0000
 -------+--------------------------+--------------+----------------+----------------+----------------------------
 </pre></div>
 </td></tr></table>
@@ -1471,7 +1417,10 @@ $ leo_gateway/bin/leo_gateway start
 38
 39
 40
-41</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ ./leofs-adm start
+41
+42
+43
+44</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ ./leofs-adm start
 Generating RING...
 Generated RING
 OK 100% - storage_0@127.0.0.1
@@ -1484,7 +1433,7 @@ $ leofs-adm status
 -----------------------------------+----------
  Basic/Consistency level
 -----------------------------------+----------
-                    system version | 1.3.2
+                    system version | 1.3.3
                         cluster Id | leofs_1
                              DC Id | dc_1
                     Total replicas | 1
@@ -1496,8 +1445,11 @@ $ leofs-adm status
 -----------------------------------+----------
  Multi DC replication settings
 -----------------------------------+----------
-        max number of joinable DCs | 2
-           number of replicas a DC | 1
+ [mdcr] max number of joinable DCs | 2
+ [mdcr] total replicas per a DC    | 1
+ [mdcr] number of successes of R   | 1
+ [mdcr] number of successes of W   | 1
+ [mdcr] number of successes of D   | 1
 -----------------------------------+----------
  Manager RING hash
 -----------------------------------+----------
@@ -1509,8 +1461,8 @@ $ leofs-adm status
 -------+--------------------------+--------------+----------------+----------------+----------------------------
  type  |           node           |    state     |  current ring  |   prev ring    |          updated at
 -------+--------------------------+--------------+----------------+----------------+----------------------------
-  S    | storage_0@127.0.0.1      | running      | 433fe365       | 433fe365       | 2017-01-30 11:03:16 +0900
-  G    | gateway_0@127.0.0.1      | running      | 433fe365       | 433fe365       | 2017-01-30 11:03:17 +0900
+  S    | storage_0@127.0.0.1      | running      | 433fe365       | 433fe365       | 2017-05-01 00:43:06 +0000
+  G    | gateway_0@127.0.0.1      | running      | 433fe365       | 433fe365       | 2017-05-01 00:43:08 +0000
 -------+--------------------------+--------------+----------------+----------------+----------------------------
 </pre></div>
 </td></tr></table>
@@ -1606,6 +1558,10 @@ delete: <span class="s1">&#39;s3://&lt;BUCKET&gt;/&lt;OBJECT&gt;&#39;</span>
 <h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../cluster/">Getting Started / Building a LeoFS' cluster with Ansible</a></li>
+<li><a href="../../admin/settings/environment_config/">For Administrators / Settings / Environment Configuration</a></li>
+<li><a href="../../admin/settings/leo_manager/">For Administrators / Settings / LeoManager Settings</a></li>
+<li><a href="../../admin/settings/leo_storage/">For Administrators / Settings / LeoStorage Settings</a></li>
+<li><a href="../../admin/settings/leo_gateway/">For Administrators / Settings / LeoGateway Settings</a></li>
 </ul>
                 
                   
@@ -1685,6 +1641,8 @@ delete: <span class="s1">&#39;s3://&lt;BUCKET&gt;/&lt;OBJECT&gt;&#39;</span>
       
     
     
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-5301881-3","leo-project.net"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
       
     
   </body>

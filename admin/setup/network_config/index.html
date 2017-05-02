@@ -705,18 +705,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../system_operations/others/" title="Others" class="md-nav__link">
-      Others
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -759,44 +747,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../system_admin/leo_manager/" title="LeoManager's Maintenance" class="md-nav__link">
-      LeoManager's Maintenance
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../system_admin/monitoring/" title="System Monitoring" class="md-nav__link">
-      System Monitoring
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../system_admin/migration/" title="System Migration" class="md-nav__link">
       System Migration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../system_admin/backup_and_restore/" title="Backup and Restore" class="md-nav__link">
-      Backup and Restore
     </a>
   </li>
 
@@ -826,18 +778,6 @@
   <li class="md-nav__item">
     <a href="../../index_of_commands/" title="Index of LeoFS' Commands" class="md-nav__link">
       Index of LeoFS' Commands
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../troubleshooting/" title="Troubleshooting" class="md-nav__link">
-      Troubleshooting
     </a>
   </li>
 
@@ -997,7 +937,7 @@
                 
                 <h1 id="network-configurations">Network Configurations<a class="headerlink" href="#network-configurations" title="Permanent link">&para;</a></h1>
 <h2 id="firewall-rules">Firewall Rules<a class="headerlink" href="#firewall-rules" title="Permanent link">&para;</a></h2>
-<p>To work correctly a LeoFS system, it is necessary to set and check the firewall rules in your environment. LeoFS depends on <a href="http://www.erlang.org/" target="_blank">Erlang/OTP</a>'s RPC, which uses specified ports and provides LeoFS' SNMP agent which also uses a port per a LeoFS' component node - LeoStorage, LeoGateway and LeoManager.</p>
+<p>In order for a LeoFS system to operate correctly, it is necessary to set and check the firewall rules in your environment. LeoFS depends on <a href="http://www.erlang.org/" target="_blank">Erlang/OTP</a>'s RPC, which uses specified ports and provides LeoFS' SNMP agent which also uses a port per a LeoFS' component node - LeoStorage, LeoGateway, and LeoManager.</p>
 <table>
 <thead>
 <tr>
@@ -1143,7 +1083,7 @@
 </tbody>
 </table>
 <h3 id="how-to-change-erlangs-port-range">How to Change Erlang's Port Range<a class="headerlink" href="#how-to-change-erlangs-port-range" title="Permanent link">&para;</a></h3>
-<p>Port range can be specified by setting Erlang's kernel variables <code class="codehilite">inet_dist_listen_min</code> and <code class="codehilite">inet_dist_listen_max</code>. If it is necesssary to change those variables, enter the Erlang console of a targe node.</p>
+<p>Port range can be specified by setting Erlang's kernel variables <code class="codehilite">inet_dist_listen_min</code> and <code class="codehilite">inet_dist_listen_max</code>. If you need to change those configuration items, you need to enter the Erlang console of a target node.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1246,6 +1186,8 @@ $ bin/leo_storage remote_console
       
     
     
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-5301881-3","leo-project.net"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
       
     
   </body>
