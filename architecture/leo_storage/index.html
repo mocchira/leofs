@@ -1017,7 +1017,7 @@
 <h3 id="write-request-handling">WRITE-Request Handling<a class="headerlink" href="#write-request-handling" title="Permanent link">&para;</a></h3>
 <p>A LeoStorage node accepts a request from a LeoGateway node then automatically replicate an object into the LeoStorage cluster. Finally, its LeoStorage node confirms whether a stored object satisfies the consistency rule.</p>
 <h3 id="read-request-handling">READ-Request Handling<a class="headerlink" href="#read-request-handling" title="Permanent link">&para;</a></h3>
-<p>A LeoGateway node requests a LeoStorage node; then its LeoStorage node retrieves an object from the local object-storage or a remote LeoStorage node. Finally, its LeoStorage node responds an object to its LeoGateway node. Also, its LeoStorage node checks the consistency with the asynchronous processing.</p>
+<p>A LeoGateway node requests a LeoStorage node; then its LeoStorage node retrieves an object from the local object-storage or a remote LeoStorage node. Finally, its LeoStorage node responds an object to its LeoGateway node. Also, its LeoStorage node checks the consistency with the asynchronous processing. Please note that <a href="../../admin/settings/leo_gateway/#cache-consistency-between-leogateway-and-leostorage">LeoGateway cache settings</a> can affect requests handling.</p>
 <p>If its LeoStorage node finds inconsistency of an object, its node fixes the inconsistent object with the backend process. Its object eventually keeps consistency with the functions.</p>
 <p><img alt="" src="../../assets/leofs-architecture.003.jpg" /></p>
 <h2 id="data-structure">Data Structure<a class="headerlink" href="#data-structure" title="Permanent link">&para;</a></h2>

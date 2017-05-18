@@ -1320,7 +1320,7 @@
 <h2 id="how-to-operate-data-compaction">How To Operate Data Compaction<a class="headerlink" href="#how-to-operate-data-compaction" title="Permanent link">&para;</a></h2>
 <p>As described in the previous section, A compaction process is needed to remove logically deleted objects and its corresponding metadata.</p>
 <h3 id="state-transition">State Transition<a class="headerlink" href="#state-transition" title="Permanent link">&para;</a></h3>
-<p><img alt="State Transition" src="http://leo-project.net/leofs/docs/_images/leofs-compaction-state-transition.png" /></p>
+<p><img alt="State Transition" src="../../../assets/leofs-compaction-state-transition.png" /></p>
 <h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h3>
 <p>Commands related to Compaction as well as Disk Usage.</p>
 <table>
@@ -1635,7 +1635,7 @@ OK
 </li>
 <li>Queue Broken<ul>
 <li>Invoke <code class="codehilite">recover-node</code> with every node except which having broken Queue files.</li>
-<li>The procedure might be improved in future when <a href="https://github.com/leo-project/leofs/issues/618">https://github.com/leo-project/leofs/issues/618</a> solved.</li>
+<li>The procedure might be improved in future when <a href="https://github.com/leo-project/leofs/issues/618">issue#618</a> solved.</li>
 </ul>
 </li>
 <li>Disk Broken<ul>
@@ -1658,7 +1658,7 @@ OK
 <li>Source/Destination Cluster Down and delete operations on the other side got lost (compacted).<ul>
 <li>Set up the cluster from scratch</li>
 <li>invoke <code class="codehilite">recover-cluster</code> with the new cluster</li>
-<li>See also <a href="https://github.com/leo-project/leofs/issues/636">https://github.com/leo-project/leofs/issues/636</a> for more information.</li>
+<li>See also <a href="https://github.com/leo-project/leofs/issues/636">issue#636</a> for more information.</li>
 </ul>
 </li>
 </ul>
