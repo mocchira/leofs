@@ -1746,6 +1746,21 @@
             "title": "When adding a new storage node, that node doesn't appear with leofs-adm status, Why?"
         }, 
         {
+            "location": "/faq/client/", 
+            "text": "FAQ: LeoFS Clients\n\n\n\n\n\nName Resolution\n\n\n\n\nThere are two ways to access LeoGateway from LeoFS Clients.\n\n\nPath Style Access\n\n\nSub-Domain Style Access\n\n\n\n\n\n\n\n\nIf a LeoFS Client you use adopts the Sub-Domain Style Access then the client need to resolve \nbucket.endpoint\n domain into the ip address of LeoGateway.\n\n\n\n\n\n\nRelated Links:\n\n\n\n\nA Comment on LeoFS' ISSUE_748\n\n\nFor Administrators / System Operations / S3 / Endpoint", 
+            "title": "LeoFS Clients"
+        }, 
+        {
+            "location": "/faq/client/#faq-leofs-clients", 
+            "text": "", 
+            "title": "FAQ: LeoFS Clients"
+        }, 
+        {
+            "location": "/faq/client/#name-resolution", 
+            "text": "There are two ways to access LeoGateway from LeoFS Clients.  Path Style Access  Sub-Domain Style Access     If a LeoFS Client you use adopts the Sub-Domain Style Access then the client need to resolve  bucket.endpoint  domain into the ip address of LeoGateway.    Related Links:   A Comment on LeoFS' ISSUE_748  For Administrators / System Operations / S3 / Endpoint", 
+            "title": "Name Resolution"
+        }, 
+        {
             "location": "/production_checklist/README/", 
             "text": "Production Checklist: LeoFS\n\n\n\n\n\nWhat version should we use?\n\n\nUse the latest stable one. With the version \n= v1.3.0, LeoFS had a serious issue that may cause data-lost, so that use at least \n= v1.3.1. Or in case you need to keep running LeoFS with older one for some reason, make sure that \nlarge_object.reading_chunked_obj_len\n \n= \nlarge_object.chunked_obj_len\n in \nleo_gateway.conf\n. This setting prevent LeoFS from suffering \nLeoFS Issue#531\n.\n\n\nThe last part of a large object can be broken with \nreading_chunked_obj_len\n \n \nchunked_obj_len\n in \nleo_gateway.conf\n.", 
             "title": "Production Checklist"
