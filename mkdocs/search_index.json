@@ -1747,7 +1747,7 @@
         }, 
         {
             "location": "/faq/client/", 
-            "text": "FAQ: LeoFS Clients\n\n\n\n\n\nName Resolution\n\n\n\n\nThere are two ways to access LeoGateway from LeoFS Clients.\n\n\nPath Style Access\n\n\nSub-Domain Style Access\n\n\n\n\n\n\n\n\nIf a LeoFS Client you use adopts the Sub-Domain Style Access then the client need to resolve \nbucket.endpoint\n domain into the ip address of LeoGateway.\n\n\n\n\n\n\nRelated Links:\n\n\n\n\nA Comment on LeoFS' ISSUE_748\n\n\nFor Administrators / System Operations / S3 / Endpoint", 
+            "text": "FAQ: LeoFS Clients\n\n\n\n\n\nName Resolution\n\n\n\n\nThere are two ways to access LeoGateway from LeoFS' Clients.\n\n\nPath Style Access\n\n\nSub-Domain Style Access\n\n\n\n\n\n\n\n\nIf a LeoFS Client you use adopts the sub-domain style access, then the client need to resolve \nbucket.endpoint\n domain into the IP address of LeoGateway.\n\n\n\n\n\n\nRelated Links:\n\n\n\n\nA Comment on LeoFS' ISSUE_748\n\n\nFor Administrators / System Operations / S3 / Endpoint", 
             "title": "LeoFS Clients"
         }, 
         {
@@ -1757,7 +1757,7 @@
         }, 
         {
             "location": "/faq/client/#name-resolution", 
-            "text": "There are two ways to access LeoGateway from LeoFS Clients.  Path Style Access  Sub-Domain Style Access     If a LeoFS Client you use adopts the Sub-Domain Style Access then the client need to resolve  bucket.endpoint  domain into the ip address of LeoGateway.    Related Links:   A Comment on LeoFS' ISSUE_748  For Administrators / System Operations / S3 / Endpoint", 
+            "text": "There are two ways to access LeoGateway from LeoFS' Clients.  Path Style Access  Sub-Domain Style Access     If a LeoFS Client you use adopts the sub-domain style access, then the client need to resolve  bucket.endpoint  domain into the IP address of LeoGateway.    Related Links:   A Comment on LeoFS' ISSUE_748  For Administrators / System Operations / S3 / Endpoint", 
             "title": "Name Resolution"
         }, 
         {
