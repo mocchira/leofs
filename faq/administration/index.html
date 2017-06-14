@@ -922,6 +922,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#what-should-i-do-when-a-timeout-error-happen-during-upload-a-very-large-file" title="What should I do when a timeout error happen during upload a very large file?" class="md-nav__link">
+    What should I do when a timeout error happen during upload a very large file?
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1090,6 +1097,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#what-should-i-do-when-a-timeout-error-happen-during-upload-a-very-large-file" title="What should I do when a timeout error happen during upload a very large file?" class="md-nav__link">
+    What should I do when a timeout error happen during upload a very large file?
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1181,6 +1195,28 @@ erlang.smp <span class="o">=</span> <span class="nb">enable</span>
 <p>If you changed a WRONG node name before stopping the daemon, As a result, when a new daemon was starting, it failed to detect that the previous was still running and
 stop command did not work too.</p>
 <p>Since you can notice this kind of mistake in <code class="codehilite">error.log</code> with <code class="codehilite">LeoFS v1.2.9</code>, we'd recommend you upgrading to the v1.2.9 or higher one.</p>
+<h2 id="what-should-i-do-when-a-timeout-error-happen-during-upload-a-very-large-file">What should I do when a <strong>timeout</strong> error happen during upload a very large file?<a class="headerlink" href="#what-should-i-do-when-a-timeout-error-happen-during-upload-a-very-large-file" title="Permanent link">&para;</a></h2>
+<p>There are two configurations that could affect how often <strong>timeout</strong> could happen in leo_gateway.conf.</p>
+<ul>
+<li>http.timeout_for_body (in msecs)</li>
+<li>large_object.reading_chunked_obj_len (in bytes)</li>
+</ul>
+<p>As <strong>timeout</strong> during upload could happen when <code class="codehilite">http.timeout_for_body</code> passed during every <code class="codehilite">large_object.reading_chunked_obj_len</code> bytes read, assuming we have <code class="codehilite">http.timeout_for_body</code> set to 1000 and <code class="codehilite">large_object.reading_chunked_obj_len</code> set to 1048576, we could expect any upload to be succeeded in if we ensured at least 8Mbps(1MB/sec) stable network bandwidth.</p>
+<p>Also taking the concurrent uploads into account, we can define the expression that enables us to check whether each configuration is valid as below.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="na">EXPECTED_BANDWIDTH_IN_BYTES</span> <span class="o">=</span> <span class="s">large_object.reading_chunked_obj_len / (http.timeout_for_body / 1000) * MAX_CONCURRENT_UPLOADS</span>
+</pre></div>
+</td></tr></table>
+
+<p>For example, say we have 1Gbps(128MB/sec) stable bandwidth and 128 concurrent uploads at most then we could be ready to 1MB per connection so that</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="na">http.timeout_for_body</span> <span class="o">=</span> <span class="s">1000</span>
+<span class="na">large_object.reading_chunked_obj_len</span> <span class="o">=</span> <span class="s">1048576</span>
+<span class="c1"># EXPECTED_BANDWIDTH_IN_BYTES = 1048576 / (1000 / 1000) * 128 = 134217728(128MB)</span>
+</pre></div>
+</td></tr></table>
+
+<p>is considered as a valid configuration.</p>
                 
                   
                 
