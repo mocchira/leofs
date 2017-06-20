@@ -1207,7 +1207,7 @@ stop command did not work too.</p>
 </pre></div>
 </td></tr></table>
 
-<p>For example, say we have 1Gbps(128MB/sec) stable bandwidth and 128 concurrent uploads at most then we could be ready to 1MB per connection so that</p>
+<p>For example, say we have 1Gbps(128MB/sec) stable bandwidth and 128 concurrent uploads at most then we could be ready to 1MB per connection so the below is considered as a valid configuration.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="na">http.timeout_for_body</span> <span class="o">=</span> <span class="s">1000</span>
@@ -1216,7 +1216,13 @@ stop command did not work too.</p>
 </pre></div>
 </td></tr></table>
 
-<p>is considered as a valid configuration.</p>
+<p>Also there is one important thing you have to care.
+To decrease the bandwidth and odds timeout could happen, you have two options.</p>
+<ul>
+<li>Decrease <code class="codehilite">large_object.reading_chunked_obj_len</code></li>
+<li>Increase <code class="codehilite">http.timeout_for_body</code></li>
+</ul>
+<p>Logically it's same between decreasing the buffer size and increasing the timeout. However there is one benefit using the former one rather than the latter. As the memory allocation request in Erlang VM happen in <code class="codehilite">large_object.reading_chunked_obj_len</code> unit, the larger buffer size we set, the more memory footprint the host running LeoGateway needs at once so that if LeoGateway accepts lots of connections and those try to upload very large files in parallel then the odds OOM could happen increase. That said, decreasing the buffer size should be the first try in terms of safety(less memory usages).</p>
                 
                   
                 
