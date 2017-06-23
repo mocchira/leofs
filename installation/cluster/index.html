@@ -345,8 +345,36 @@
     Retrieves both an access-key and a secret accesskey
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-an-endpoint" title="Configure an endpoint" class="md-nav__link">
+    Configure an endpoint
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assign-a-name-to-leogateway-through-dns-or-etchosts" title="Assign a name to LeoGateway through DNS or /etc/hosts" class="md-nav__link">
+    Assign a name to LeoGateway through DNS or /etc/hosts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-an-endpoint-through-leofs-adm" title="Add an endpoint through leofs-adm" class="md-nav__link">
+    Add an endpoint through leofs-adm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-a-specific-bucket-and-objects-under-the-bucket-available" title="Make a specific bucket and objects under the bucket available" class="md-nav__link">
+    Make a specific bucket and objects under the bucket available
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#usess3cmd-to-access-it" title="Usess3cmd to access it" class="md-nav__link">
@@ -612,8 +640,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../admin/settings/leo_storage/" title="LeoStroage Settings" class="md-nav__link">
-      LeoStroage Settings
+    <a href="../../admin/settings/leo_storage/" title="LeoStorage Settings" class="md-nav__link">
+      LeoStorage Settings
     </a>
   </li>
 
@@ -1045,8 +1073,36 @@
     Retrieves both an access-key and a secret accesskey
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-an-endpoint" title="Configure an endpoint" class="md-nav__link">
+    Configure an endpoint
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assign-a-name-to-leogateway-through-dns-or-etchosts" title="Assign a name to LeoGateway through DNS or /etc/hosts" class="md-nav__link">
+    Assign a name to LeoGateway through DNS or /etc/hosts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-an-endpoint-through-leofs-adm" title="Add an endpoint through leofs-adm" class="md-nav__link">
+    Add an endpoint through leofs-adm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-a-specific-bucket-and-objects-under-the-bucket-available" title="Make a specific bucket and objects under the bucket available" class="md-nav__link">
+    Make a specific bucket and objects under the bucket available
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#usess3cmd-to-access-it" title="Usess3cmd to access it" class="md-nav__link">
@@ -1280,6 +1336,33 @@ secret-access-key: &lt;SECRET-ACCESS-KEY-ID&gt;
 </td></tr></table>
 
 <p>After that, you use S3-client(s) with those keys when you access the LeoFS storage system.</p>
+<h2 id="configure-an-endpoint">Configure an endpoint<a class="headerlink" href="#configure-an-endpoint" title="Permanent link">&para;</a></h2>
+<p>To make buckets and objects available from a host running S3-client(s), you need to add an endpoint also tweak settings for the name resolution.</p>
+<h3 id="assign-a-name-to-leogateway-through-dns-or-etchosts">Assign a name to LeoGateway through DNS or /etc/hosts<a class="headerlink" href="#assign-a-name-to-leogateway-through-dns-or-etchosts" title="Permanent link">&para;</a></h3>
+<p>In this example, we take the latter way.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ sudo vi /etc/hosts
+<span class="c1"># Add the below line on every host you are supposed to run S3-client(s)</span>
+<span class="m">10</span>.0.0.103 leo_gateway
+</pre></div>
+</td></tr></table>
+
+<h3 id="add-an-endpoint-through-leofs-adm">Add an endpoint through leofs-adm<a class="headerlink" href="#add-an-endpoint-through-leofs-adm" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ leofs-adm add-endpoint leo_gateway
+</pre></div>
+</td></tr></table>
+
+<h3 id="make-a-specific-bucket-and-objects-under-the-bucket-available">Make a specific bucket and objects under the bucket available<a class="headerlink" href="#make-a-specific-bucket-and-objects-under-the-bucket-available" title="Permanent link">&para;</a></h3>
+<p>You need to resolve the domain name <code class="codehilite">test.leo_gateway</code> into the IP address of LeoGateway if you are going to have a bucket named <code class="codehilite">test</code>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ sudo vi /etc/hosts
+<span class="c1"># Add the below line on every host you are supposed to run S3-client(s)</span>
+<span class="m">10</span>.0.0.103 test.leo_gateway
+</pre></div>
+</td></tr></table>
+
 <h3 id="usess3cmd-to-access-it">Uses<code class="codehilite">s3cmd</code> to access it<a class="headerlink" href="#usess3cmd-to-access-it" title="Permanent link">&para;</a></h3>
 <p>If you'd like to use <a href="http://s3tools.org/s3cmd" target="_blank">s3cmd</a> to access the LeoFS storage system, perform the following steps:</p>
 <ul>
@@ -1301,7 +1384,7 @@ $ s3cmd --configure
 ...
 <span class="c1">## access_key = &lt;access-key-id&gt;</span>
 <span class="c1">## secret_key = &lt;secret-access-key&gt;</span>
-<span class="c1">## proxy_host = localhost</span>
+<span class="c1">## proxy_host = leo_gateway</span>
 <span class="c1">## proxy_port = 8080</span>
 </pre></div>
 </td></tr></table>
