@@ -1455,9 +1455,8 @@ OK
 
 <div class="admonition note">
 <p class="admonition-title">Note: How many delete-bucket requests can be proceeded at once</p>
-<p>8 delete-bucket requests can be proceeded at once and if there are over 8 ones then exceeded ones are pushed on a queue and will be proceeded later once the number of processing delete-bucket go down under</p>
+<p>8 delete-bucket requests can be proceeded at once and if there are over 8 ones then exceeded ones are pushed on a queue and will be proceeded later once the number of processing delete-bucket go down under 8.</p>
 </div>
-<p>8.</p>
 <h4 id="retrieve-a-list-of-the-ongoing-delete-buckets-delete-bucket-stats">Retrieve a list of the ongoing delete-buckets, <code class="codehilite">delete-bucket-stats</code><a class="headerlink" href="#retrieve-a-list-of-the-ongoing-delete-buckets-delete-bucket-stats" title="Permanent link">&para;</a></h4>
 <p>Retrieves a list of the ongoing delete-buckets if you need to know the progress of the ongoing delete-buckets.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -1540,8 +1539,7 @@ $ leofs-adm delete-bucket-stats
 <p>Once the state of every storage node transit into finished, the delete-bucket records get deleted within a few minutes.</p>
 </div>
 <h4 id="reset-a-delete-bucket-stats-record-reset-delete-bucket-stats">Reset a delete-bucket-stats record, <code class="codehilite">reset-delete-bucket-stats</code><a class="headerlink" href="#reset-a-delete-bucket-stats-record-reset-delete-bucket-stats" title="Permanent link">&para;</a></h4>
-<p>Reset a delete-bucket-stats record if you face some trouble that inconsistency between manager nodes and storage nodes happened and only way to solve this problem is to reset(delete) a delete-bucket-stats recor
-d.</p>
+<p>Reset a delete-bucket-stats record if you face some trouble that inconsistency between manager nodes and storage nodes happened and only way to solve this problem is to reset(delete) a delete-bucket-stats record.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
