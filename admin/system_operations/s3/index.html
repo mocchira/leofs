@@ -1439,8 +1439,12 @@ OK
 </pre></div>
 </td></tr></table>
 
+<div class="admonition note">
+<p class="admonition-title">Note: Creating bucket with the same name as one being removed</p>
+<p>It's not possible to create bucket with the same name as one currently being removed. Deletion of all objects belonging to former bucket must complete before bucket with the same name can be created again.</p>
+</div>
 <h4 id="remove-a-bucket-delete-bucket">Remove a bucket, <code class="codehilite">delete-bucket</code><a class="headerlink" href="#remove-a-bucket-delete-bucket" title="Permanent link">&para;</a></h4>
-<p>Removes a bucket if its user does not need it.</p>
+<p>Removes a bucket if its user does not need it. The bucket name is removed right away, while objects from that bucket will be deleted in asynchronous fashion after that.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1536,7 +1540,7 @@ $ leofs-adm delete-bucket-stats
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note: How long the delete-bucket records exist</p>
-<p>Once the state of every storage node transit into finished, the delete-bucket records get deleted within a few minutes.</p>
+<p>Once the state of every storage node transit into finished, the delete-bucket records get deleted within several tens of seconds.</p>
 </div>
 <h4 id="reset-a-delete-bucket-stats-record-reset-delete-bucket-stats">Reset a delete-bucket-stats record, <code class="codehilite">reset-delete-bucket-stats</code><a class="headerlink" href="#reset-a-delete-bucket-stats-record-reset-delete-bucket-stats" title="Permanent link">&para;</a></h4>
 <p>Reset a delete-bucket-stats record if you face some trouble that inconsistency between manager nodes and storage nodes happened and only way to solve this problem is to reset(delete) a delete-bucket-stats record.</p>
@@ -1552,6 +1556,10 @@ OK
 </pre></div>
 </td></tr></table>
 
+<div class="admonition note">
+<p class="admonition-title">Note: Removing inaccessible objects after <code class="codehilite">reset-delete-bucket-stats</code></p>
+<p>Since this operation aborts deletion of objects belonging to (already deleted) bucket, it might be a good idea to create and delete bucket with same name again after <code class="codehilite">reset-delete-bucket-stats</code>, to make sure that bucket deletion completes properly and no stale objects remain. </p>
+</div>
 <h4 id="retrieve-a-list-of-buckets-get-buckets">Retrieve a list of buckets, <code class="codehilite">get-buckets</code><a class="headerlink" href="#retrieve-a-list-of-buckets-get-buckets" title="Permanent link">&para;</a></h4>
 <p>Retrieves a list of the buckets if you need to know the existing buckets.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
