@@ -1240,13 +1240,21 @@ To decrease the bandwidth and odds timeout could happen, you have two options.</
 <h2 id="if-nodes-in-a-cluster-are-connected-using-dns-names-when-will-dns-lookups-happen">If nodes in a cluster are connected using DNS names, When will DNS lookups happen?<a class="headerlink" href="#if-nodes-in-a-cluster-are-connected-using-dns-names-when-will-dns-lookups-happen" title="Permanent link">&para;</a></h2>
 <ul>
 <li>The short answer is<ul>
-<li>basically ONLY when starting each node</li>
-<li>rarely when the network get unstable and TCP connections between nodes get disconnected and re-connected later (TCP connections between nodes in a cluster keep alived and being used for RPC(remote procedure call) and any distributed erlang feature, so once connected to others, No DNS lookups happen except abnormal cases as stated above)</li>
+<li>ONLY when starting each node</li>
+<li>Rarely when the network gets unstable, and TCP connections between nodes get disconnected and re-connected later (TCP connections between nodes in a cluster keep alive and being used for RPC(remote procedure call) and any Distributed Erlang<sup id="fnref3:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> feature, so once connected to others, No DNS lookups happen except abnormal cases as stated above)</li>
 </ul>
 </li>
-<li>The long/precious answer is depending on how <a href="http://erlang.org/doc/reference_manual/distributed.html">distributed erlang</a> is implemented so you would have to become a master of distributed erlang protocol, however in reality only remembering the short answer could help you in almost cases</li>
+<li>The long/precious answer is depending on how Distributed Erlang<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> is implemented so you would have to become a master of Distributed Erlang<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> protocol, however in reality only remembering the short answer could help you in almost cases</li>
 </ul>
 <p>Given that the above answers, You would not need to be afraid of using hostnames instead of ip addresses.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="http://erlang.org/doc/reference_manual/distributed.html" target="_blank">Distributed Erlang</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 
