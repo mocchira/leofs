@@ -19,7 +19,7 @@
     
     
       
-        <title>System Integration - LeoFS Documentation</title>
+        <title>Persistent Configuration - LeoFS Documentation</title>
       
     
     
@@ -86,7 +86,7 @@
                 </span>
               
             
-            System Integration
+            Persistent Configuration
           
         </span>
       </div>
@@ -701,11 +701,95 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../persistent_configuration/" title="Persistent Configuration" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Persistent Configuration
+      </label>
+    
+    <a href="./" title="Persistent Configuration" class="md-nav__link md-nav__link--active">
       Persistent Configuration
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#node-configuration-in-etcleofs" title="Node configuration in /etc/leofs" class="md-nav__link">
+    Node configuration in /etc/leofs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#different-configuration-directory-for-each-leofs-version" title="Different configuration directory for each LeoFS version" class="md-nav__link">
+    Different configuration directory for each LeoFS version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#same-configuration-directory-for-all-versions" title="Same configuration directory for all versions" class="md-nav__link">
+    Same configuration directory for all versions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-details" title="Usage details" class="md-nav__link">
+    Usage details
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-check-which-configuration-directory-is-used" title="How to check which configuration directory is used" class="md-nav__link">
+    How to check which configuration directory is used
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-creation-of-etcleofs-hierarchy" title="Manual creation of /etc/leofs hierarchy" class="md-nav__link">
+    Manual creation of /etc/leofs hierarchy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-links" title="Related Links" class="md-nav__link">
+    Related Links
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -725,115 +809,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        System Integration
-      </label>
-    
-    <a href="./" title="System Integration" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../integration/" title="System Integration" class="md-nav__link">
       System Integration
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cdn-integration" title="CDN Integration" class="md-nav__link">
-    CDN Integration
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#how-to-integrate-leofs-with-cdn" title="How To Integrate LeoFS With CDN" class="md-nav__link">
-    How To Integrate LeoFS With CDN
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-use-http_custom_headerconf" title="How To Use http_custom_header.conf" class="md-nav__link">
-    How To Use http_custom_header.conf
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-write-http_custom_headerconf" title="How To Write http_custom_header.conf" class="md-nav__link">
-    How To Write http_custom_header.conf
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-cases" title="Use Cases" class="md-nav__link">
-    Use Cases
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#appendix" title="Appendix" class="md-nav__link">
-    Appendix
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#syntax-for-the-expire-field" title="Syntax for the expire field" class="md-nav__link">
-    Syntax for the expire field
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-of-verified-cdn-services" title="List of verified CDN services" class="md-nav__link">
-    List of verified CDN services
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-links" title="Related Links" class="md-nav__link">
-    Related Links
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -988,59 +968,23 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cdn-integration" title="CDN Integration" class="md-nav__link">
-    CDN Integration
+  <a href="#node-configuration-in-etcleofs" title="Node configuration in /etc/leofs" class="md-nav__link">
+    Node configuration in /etc/leofs
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-to-integrate-leofs-with-cdn" title="How To Integrate LeoFS With CDN" class="md-nav__link">
-    How To Integrate LeoFS With CDN
+  <a href="#different-configuration-directory-for-each-leofs-version" title="Different configuration directory for each LeoFS version" class="md-nav__link">
+    Different configuration directory for each LeoFS version
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-to-use-http_custom_headerconf" title="How To Use http_custom_header.conf" class="md-nav__link">
-    How To Use http_custom_header.conf
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-write-http_custom_headerconf" title="How To Write http_custom_header.conf" class="md-nav__link">
-    How To Write http_custom_header.conf
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-cases" title="Use Cases" class="md-nav__link">
-    Use Cases
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#appendix" title="Appendix" class="md-nav__link">
-    Appendix
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#syntax-for-the-expire-field" title="Syntax for the expire field" class="md-nav__link">
-    Syntax for the expire field
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-of-verified-cdn-services" title="List of verified CDN services" class="md-nav__link">
-    List of verified CDN services
+  <a href="#same-configuration-directory-for-all-versions" title="Same configuration directory for all versions" class="md-nav__link">
+    Same configuration directory for all versions
   </a>
   
 </li>
@@ -1049,9 +993,25 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#usage-details" title="Usage details" class="md-nav__link">
+    Usage details
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-check-which-configuration-directory-is-used" title="How to check which configuration directory is used" class="md-nav__link">
+    How to check which configuration directory is used
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-creation-of-etcleofs-hierarchy" title="Manual creation of /etc/leofs hierarchy" class="md-nav__link">
+    Manual creation of /etc/leofs hierarchy
+  </a>
   
 </li>
       
@@ -1076,103 +1036,138 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/leo-project/leofs/edit/master/docs/admin/system_admin/integration.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/leo-project/leofs/edit/master/docs/admin/system_admin/persistent_configuration.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="system-integration">System Integration<a class="headerlink" href="#system-integration" title="Permanent link">&para;</a></h1>
-<h2 id="cdn-integration">CDN Integration<a class="headerlink" href="#cdn-integration" title="Permanent link">&para;</a></h2>
-<h3 id="how-to-integrate-leofs-with-cdn">How To Integrate LeoFS With CDN<a class="headerlink" href="#how-to-integrate-leofs-with-cdn" title="Permanent link">&para;</a></h3>
-<p>There is nothing special to do for integrating LeoFS with CDN<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>. Since almost CDN service providers take care of a CacheControl Header received from an origin to determine how long a file should be cached on their edge servers, so if you want to modify TTL according to URLs, you can do it by using <code class="codehilite">http_custom_header.conf</code>.</p>
-<h3 id="how-to-use-http_custom_headerconf">How To Use <code class="codehilite">http_custom_header.conf</code><a class="headerlink" href="#how-to-use-http_custom_headerconf" title="Permanent link">&para;</a></h3>
-<p>Append the following line to <code class="codehilite">leo_gateway.conf</code> which contains a LeoGateway's directory. Arrange the <code class="codehilite">http_custom_header.conf</code> into the path specified at <code class="codehilite">leo_gateway.conf</code>.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">## HTTP custom header configuration file path</span>
-<span class="na">http.headers_config_file</span> <span class="o">=</span> <span class="s">./etc/http_custom_header.conf</span>
+                <h1 id="persistent-configuration-location">Persistent Configuration Location<a class="headerlink" href="#persistent-configuration-location" title="Permanent link">&para;</a></h1>
+<h2 id="node-configuration-in-etcleofs">Node configuration in <code class="codehilite">/etc/leofs</code><a class="headerlink" href="#node-configuration-in-etcleofs" title="Permanent link">&para;</a></h2>
+<p>Starting from v1.4.0, LeoFS nodes support loading configuration from <code class="codehilite">/etc/leofs</code> hierarchy. This means that there are two locations from which nodes can load their configuration (but only one can be enabled at any time). Official Linux packages ship a copy of config files in <code class="codehilite">/etc/leofs/leo_*</code>, though the feature itself should work on any system. However, it is <strong>disabled</strong> by default for compatibility with older versions. </p>
+<h3 id="different-configuration-directory-for-each-leofs-version">Different configuration directory for each LeoFS version<a class="headerlink" href="#different-configuration-directory-for-each-leofs-version" title="Permanent link">&para;</a></h3>
+<p><strong>Currently, this is default for all installations.</strong></p>
+<p>Config files are loaded from these locations when <code class="codehilite">/etc/leofs/leofs.conf</code> does not exist, is empty or contains <code class="codehilite">GLOBAL_CONFIG=no</code> (default). "%(version)" here is LeoFS version like "1.3.7":</p>
+<table>
+<thead>
+<tr>
+<th>Node Type</th>
+<th>Full Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manager Master</td>
+<td>/usr/local/leofs/%(version)/leo_manager_0/etc</td>
+</tr>
+<tr>
+<td>Manager Slave</td>
+<td>/usr/local/leofs/%(version)/leo_manager_1/etc</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>/usr/local/leofs/%(version)/leo_storage/etc</td>
+</tr>
+<tr>
+<td>Gateway</td>
+<td>/usr/local/leofs/%(version)/leo_gateway/etc</td>
+</tr>
+</tbody>
+</table>
+<p>For each LeoFS version, these directories will be different (e.g. <code class="codehilite">/usr/local/leofs/1.3.6/leo_storage/etc</code> and <code class="codehilite">/usr/local/leofs/1.3.7/leo_storage/etc</code>). Because of this, config files needs to be copied into new directory after each upgrade.</p>
+<div class="admonition note">
+<p class="admonition-title">Note: Relative config files locations</p>
+<p>The paths listed above work for default installation, but config files are actually loaded from directory relative to binaries. For example, if Manager Master is located in <code class="codehilite">/home/leofs/leo_manager_master</code>, config files will be picked from <code class="codehilite">/home/leofs/leo_manager_master/etc</code>.</p>
+</div>
+<h3 id="same-configuration-directory-for-all-versions">Same configuration directory for all versions<a class="headerlink" href="#same-configuration-directory-for-all-versions" title="Permanent link">&para;</a></h3>
+<p>For LeoFS v1.4.0 or later, when <code class="codehilite">/etc/leofs/leofs.conf</code> exists and contains <code class="codehilite">GLOBAL_CONFIG=yes</code>, configuration is loaded from these directories - independent from version or binaries location:</p>
+<table>
+<thead>
+<tr>
+<th>Node Type</th>
+<th>Full Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manager Master</td>
+<td>/etc/leofs/leo_manager_0</td>
+</tr>
+<tr>
+<td>Manager Slave</td>
+<td>/etc/leofs/leo_manager_1</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>/etc/leofs/leo_storage</td>
+</tr>
+<tr>
+<td>Gateway</td>
+<td>/etc/leofs/leo_gateway</td>
+</tr>
+</tbody>
+</table>
+<p>In this case config files don't need to be moved during upgrades. To enable this feature, edit <code class="codehilite">/etc/leofs/leofs.conf</code> file, setting</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>GLOBAL_CONFIG=yes
 </pre></div>
 </td></tr></table>
 
-<h3 id="how-to-write-http_custom_headerconf">How To Write <code class="codehilite">http_custom_header.conf</code><a class="headerlink" href="#how-to-write-http_custom_headerconf" title="Permanent link">&para;</a></h3>
-<p>The syntax is a subset of <strong>Nginx<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> configuration</strong>. You can use location contexts to specify TTL and add any headers to the path.</p>
+<h2 id="usage-details">Usage details<a class="headerlink" href="#usage-details" title="Permanent link">&para;</a></h2>
+<p>The new configuration directories apply to main config files and <a href="../../settings/environment_config/">environment files</a> (leo_manager.conf/.environment, leo_storage.conf/.environment, leo_gateway.conf/.environment). This <strong>does not</strong> apply to anything else by default, e.g. server_cert.pem/server_key.pem won't be picked from <code class="codehilite">/etc/leofs/leo_gateway</code> unless explicitly set so in leo_gateway.conf. It does not apply to .schema files as well, but this can be changed by setting <code class="codehilite">RUNNER_SCHEMA_DIR</code> in .environment file, if required.</p>
+<p>Users have an option of either directly editing main config file (e.g.  <code class="codehilite">/etc/leofs/leo_gateway/leo_gateway.conf</code>), or creating a configuration override files in <code class="codehilite">/etc/leofs/leo_gateway/leo_gateway.d</code>, e.g. <code class="codehilite">/etc/leofs/leo_gateway/leo_gateway.d/local.conf</code>. If main config file was changed, all new package upgrades won't touch the changed file, leaving the task of merging new options and changed settings into current configuration to user. It might be a good idea to use configuration override files instead; if main config file was never edited, it will be replaced by newer version during package upgrades, while options that were changed will be loaded from configuration override directory after the main config file.</p>
+<p>Example minimal configuration, override-style is a file <code class="codehilite">/etc/leofs/leo_gateway/leo_gateway.d/20-leo_gateway.conf</code> containing the following:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>location bucket/static {
-    expires    12h;
-    add_header Cache-Control public;
-    add_header X-OriginalHeader OriginalValue;
-}
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">nodename</span> <span class="o">=</span> <span class="n">gateway_0</span><span class="mf">@192.168.0.20</span>
+<span class="n">managers</span> <span class="o">=</span> <span class="p">[</span><span class="n">manager_0</span><span class="mf">@192.168.0.10</span><span class="p">,</span> <span class="n">manager_1</span><span class="mf">@192.168.0.11</span><span class="p">]</span>
+
+<span class="n">protocol</span> <span class="o">=</span> <span class="n">s3</span>
+<span class="n">http</span><span class="p">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">8080</span>
+
+<span class="cp">## Increase RAM cache</span>
+<span class="n">cache</span><span class="p">.</span><span class="n">cache_ram_capacity</span> <span class="o">=</span> <span class="mi">1073741824</span>
 </pre></div>
 </td></tr></table>
 
-<p>In this case, assuming that a CDN service already has been enabled, and there is a file at <code class="codehilite">bucket/static/path_to_file</code>, if a user browses that file via the CDN. The CDN will receive a response from a LeoFS system with customized Http headers.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">Cache-Control</span><span class="o">:</span> <span class="nt">public</span><span class="o">,</span> <span class="nt">max-age</span><span class="o">=</span><span class="nt">43200</span><span class="o">;</span>
-<span class="nt">X-OriginalHeader</span><span class="o">:</span> <span class="nt">OriginalValue</span><span class="o">;</span>
-</pre></div>
-</td></tr></table>
-
-<h3 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h3>
-<p>Specify TTL by the bucket.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>location bucket1 {
-    expires    1h;
-    add_header Cache-Control public;
-}
-location bucket2 {
-    expires    1d;
-    add_header Cache-Control public;
-}
-location bucket3 {
-    expires    1h30m;
-    add_header Cache-Control private;
-}
-</pre></div>
-</td></tr></table>
-
-<h3 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">&para;</a></h3>
-<h4 id="syntax-for-the-expire-field">Syntax for the expire field<a class="headerlink" href="#syntax-for-the-expire-field" title="Permanent link">&para;</a></h4>
-<p>LeoFS supports a part of measurement units which can be used in Nginx configuration. Following time intervals can be specified.</p>
+<h2 id="how-to-check-which-configuration-directory-is-used">How to check which configuration directory is used<a class="headerlink" href="#how-to-check-which-configuration-directory-is-used" title="Permanent link">&para;</a></h2>
+<p>On launch, nodes report which directory they load config files from (also, the same directory is mentioned in "Exec" line of that output). When launching nodes through scripts directly, like <code class="codehilite">/usr/local/leofs/current/leo_manager_1/bin/leo_manager_1 start</code> this information is available in erlang.log.* files. By default these files are located at <code class="codehilite">/usr/local/leofs/current/leo_*/log</code> (unless redefined with RUNNER_LOG_DIR= setting in environment config file). Please check which erlang.log.* file has the most recent date (it might be <em>not</em> erlang.log.1). Example output:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">s</span><span class="o">:</span> <span class="n">seconds</span>
-<span class="n">m</span><span class="o">:</span> <span class="n">minutes</span>
-<span class="n">h</span><span class="o">:</span> <span class="n">hours</span>
-<span class="n">d</span><span class="o">:</span> <span class="n">days</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ grep -h -e Config -e Exec /usr/local/leofs/current/leo_manager_1/log/erlang.log.3
+Config path: /etc/leofs/leo_manager_1
+Exec: /usr/local/leofs/current/leo_manager_1/erts-8.3/bin/erlexec -heart -boot /usr/local/leofs/current/leo_manager_1/releases/1/leo_manager -mode embedded -config /etc/leofs/leo_manager_1/app.config -args_file /etc/leofs/leo_manager_1/vm.args -- console
 </pre></div>
 </td></tr></table>
 
-<h4 id="list-of-verified-cdn-services">List of verified CDN services<a class="headerlink" href="#list-of-verified-cdn-services" title="Permanent link">&para;</a></h4>
-<p>LeoFS Team tested the following CDN services with LeoFS. We recognize that other CDN services also should work.</p>
-<ul>
-<li><a href="https://aws.amazon.com/cloudfront/" target="_blank">Amazon CloudFront – Content Delivery Network (CDN)</a></li>
-</ul>
+<p>This shows that configuration was loaded from <code class="codehilite">/etc/leofs/leo_manager_1</code>.</p>
+<p>When launching nodes as <a href="../../system_operations/systemd/">systemd services</a>, this information is stored in journald and available through journalctl:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ journalctl -b -l -u leofs-manager-slave <span class="p">|</span> grep -e Config -e Exec
+Sep <span class="m">29</span> <span class="m">19</span>:45:42 leo-m1.dev leo_manager<span class="o">[</span><span class="m">19318</span><span class="o">]</span>: Config path: /usr/local/leofs/current/leo_manager_1/etc
+Sep <span class="m">29</span> <span class="m">19</span>:45:42 leo-m1.dev leo_manager<span class="o">[</span><span class="m">19318</span><span class="o">]</span>: Exec: /usr/local/leofs/current/leo_manager_1/erts-9.0/bin/erlexec -noinput -boot /usr/local/leofs/current/leo_manager_1/releases/1/leo_manager -mode embedded -config /usr/local/leofs/current/leo_manager_1/etc/app.config -args_file /usr/local/leofs/current/leo_manager_1/etc/vm.args -- console
+</pre></div>
+</td></tr></table>
+
+<p>This shows that configuration was loaded from <code class="codehilite">/usr/local/leofs/current/leo_manager_1/etc</code> and persistent configuration directories in <code class="codehilite">/etc/leofs</code> are <strong>not</strong> used.</p>
+<h2 id="manual-creation-of-etcleofs-hierarchy">Manual creation of /etc/leofs hierarchy<a class="headerlink" href="#manual-creation-of-etcleofs-hierarchy" title="Permanent link">&para;</a></h2>
+<p>This section applies only to non-Linux users and Linux users who are not using official packages.</p>
+<p>Configuration in <code class="codehilite">/etc/leofs</code> can be used even when it's not supplied with official packages; it should work if it's created properly. Here is example how to do it for LeoGateway:</p>
+<ol>
+<li>Create directories: <code class="codehilite">mkdir -p /etc/leofs/leo_gateway</code></li>
+<li>Make sure that config directories are <strong>writable</strong> by user running LeoFS, e.g.  <code class="codehilite">chown leofs:leofs /etc/leofs/leo_gateway</code>. This is crucial, as nodes need to create extra files in that directory at launch.</li>
+<li>Create copy of default configuration file, e.g. <code class="codehilite">cp /usr/local/leofs/%(version)/leo_gateway/etc/leo_gateway.conf /etc/leofs/leo_gateway/</code></li>
+<li>Optionally, create conf.d-style directories for changing only parts of configuration. E.g. <code class="codehilite">mkdir /etc/leofs/leo_gateway/leo_gateway.d</code></li>
+<li>Edit main config file (e.g. <code class="codehilite">/etc/leofs/leo_gateway/leo_gateway.conf</code>) or create configuration replacement file (e.g. <code class="codehilite">/etc/leofs/leo_gateway/leo_gateway.d/local.conf</code>). Optionally, create copy / edit environment file, if needed.</li>
+<li>Create <code class="codehilite">/etc/leofs/leofs.conf</code> and write <code class="codehilite">GLOBAL_CONFIG=yes</code> in there.</li>
+</ol>
 <h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../../settings/leo_gateway/">For Administrators / Settings / LeoGateway Settings</a></li>
+<li><a href="../../settings/environment_config/">For Administrators / Settings / Environment Configuration</a></li>
+<li><a href="../../system_operations/systemd/">For Administrators / System Operations / Systemd Services</a></li>
 </ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p><a href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank">CDN, Content delivery network</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p><a href="https://nginx.org/" target="_blank">Nginx, An HTTP and reverse proxy server</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
                 
                   
                 
@@ -1191,7 +1186,7 @@ location bucket3 {
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../migration/" title="System Migration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../log_management/" title="Log Management" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1200,19 +1195,19 @@ location bucket3 {
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                System Migration
+                Log Management
               </span>
             </div>
           </a>
         
         
-          <a href="../multiple_nodes/" title="Multiple Node Instances" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../migration/" title="System Migration" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Multiple Node Instances
+                System Migration
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
