@@ -829,6 +829,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../health_check/" title="Health Check" class="md-nav__link">
+      Health Check
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1132,7 +1144,7 @@
 </td></tr></table>
 
 <h2 id="how-to-check-which-configuration-directory-is-used">How to check which configuration directory is used<a class="headerlink" href="#how-to-check-which-configuration-directory-is-used" title="Permanent link">&para;</a></h2>
-<p>On launch, nodes report which directory they load config files from (also, the same directory is mentioned in "Exec" line of that output). When launching nodes through scripts directly, like <code class="codehilite">/usr/local/leofs/current/leo_manager_1/bin/leo_manager_1 start</code> this information is available in erlang.log.* files. By default these files are located at <code class="codehilite">/usr/local/leofs/current/leo_*/log</code> (unless redefined with RUNNER_LOG_DIR= setting in environment config file). Please check which erlang.log.* file has the most recent date (it might be <em>not</em> erlang.log.1). Example output:</p>
+<p>On launch, nodes report which directory they load config files from (also, the same directory is mentioned in "Exec" line of that output). When launching nodes through scripts directly, like <code class="codehilite">/usr/local/leofs/current/leo_manager_1/bin/leo_manager start</code> this information is available in erlang.log.* files. By default these files are located at <code class="codehilite">/usr/local/leofs/current/leo_*/log</code> (unless redefined with RUNNER_LOG_DIR= setting in environment config file). Please check which erlang.log.* file has the most recent date (it might be <em>not</em> erlang.log.1). Example output:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ grep -h -e Config -e Exec /usr/local/leofs/current/leo_manager_1/log/erlang.log.3

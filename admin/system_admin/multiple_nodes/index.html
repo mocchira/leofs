@@ -809,6 +809,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../health_check/" title="Health Check" class="md-nav__link">
+      Health Check
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1088,14 +1100,14 @@ http.ssl_port
 </pre></div>
 </td></tr></table>
 
-<p>Please note that this list might be not complete as new options might be added to config files. When using this feature, <strong>it's up to user to ensure that all paths above point to different directories</strong>. Trying to share the same ports or snmp_conf setting between nodes would result in second instance failing to start, but trying to share log or queue directory could lead to disasterous results. <strong>Always double-check that all paths are different before using this feature.</strong></p>
+<p>Please note that this list might be not complete as new options might be added to config files. When using this feature, <strong>it's up to user to ensure that all paths above point to different directories</strong>. Trying to share the same ports or snmp_conf setting between nodes would result in second instance failing to start, but trying to share log or queue directory could lead to disastrous results. <strong>Always double-check that all paths are different before using this feature.</strong></p>
 <div class="admonition note">
 <p class="admonition-title">Note: Multiple LeoManager instances</p>
 <p>It is possible to run multiple instances of LeoManager as well, but the resulting configuration and <code class="codehilite">leofs-adm</code> operations would be more complicated, so it's not recommended (as results of error might be severe). It would be better to use separate VMs or containers for different LeoManagers.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note: Interacting with other instances through launch script</p>
-<p>It is possible to interact with extra node instances through original launch script, however it requires a bit roundabout way of exporting environment variable as the owner of process. Example: <code class="codehilite">sudo -u leofs sh -c &quot;export NODE_EXTRA_NAME=second; /usr/local/leofs/current/leo_storage/bin/leo_storage remote_console&quot;</code></p>
+<p>It is possible to interact with extra node instances through original launch script, however it requires a bit roundabout way of exporting environment variable as the owner of process. Example: <code class="codehilite">sudo -H -u leofs sh -c &quot;export NODE_EXTRA_NAME=second; /usr/local/leofs/current/leo_storage/bin/leo_storage remote_console&quot;</code></p>
 </div>
 <h2 id="example-configuration">Example configuration<a class="headerlink" href="#example-configuration" title="Permanent link">&para;</a></h2>
 <p>Here is fully working configuration example for two storage nodes belonging to two different clusters and working on the same system. Second instance is called "second" here (unit file for it is located at <code class="codehilite">/etc/systemd/system/leofs-storage-second.service</code> and it contains <code class="codehilite">Environment=NODE_EXTRA_NAME=second</code> setting).</p>
@@ -1258,13 +1270,13 @@ lrwxrwxrwx. 1 root leofs 31 Sep 19 21:09 /etc/leofs/leo_storage_second/leo_stora
           </a>
         
         
-          <a href="../../index_of_commands/" title="Index of LeoFS' Commands" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../health_check/" title="Health Check" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Index of LeoFS' Commands
+                Health Check
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
