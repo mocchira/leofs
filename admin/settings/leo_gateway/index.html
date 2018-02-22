@@ -1507,20 +1507,20 @@
 <h4 id="configurations-which-may-affect-the-cache-behavior">Configurations which may affect the cache behavior<a class="headerlink" href="#configurations-which-may-affect-the-cache-behavior" title="Permanent link">&para;</a></h4>
 <p>Whether or not an object is cached on LeoGateway is determined by below logics.</p>
 <ul>
-<li>LeoGateway's cache feature is only available to small objects when cache.cache_disc_capacity = 0.</li>
-<li>An object which size is larger than cache.cache_disc_threshold_len never be cached if cache.cache_disc_capacity = 0.</li>
+<li>LeoGateway's cache feature is only available to small objects when <code class="codehilite">cache.cache_disc_capacity = 0</code>.</li>
+<li>An object which size is larger than <code class="codehilite">cache.cache_disc_threshold_len</code> never be cached if <code class="codehilite">cache.cache_disc_capacity = 0</code>.</li>
 </ul>
 <p>How LeoGateway's cache feature works with cache related configurations is described below.</p>
 <ul>
 <li>For small objects<ul>
 <li>Cache happens in both cases handling a PUT request in the write through way and handling a GET in the read through way</li>
-<li>Being stored into memory if the size of an object &lt; cache.cache_disc_threshold_len</li>
-<li>Being stored into Disk if the size of an object &gt;= cache.cache_disc_threshold_len</li>
+<li>Being stored into memory if the size of an object &lt; <code class="codehilite">cache.cache_disc_threshold_len</code></li>
+<li>Being stored into Disk if the size of an object &gt;= <code class="codehilite">cache.cache_disc_threshold_len</code></li>
 </ul>
 </li>
 <li>For large objects<ul>
 <li>Cache happens ONLY in case handling a GET request in the read through way</li>
-<li>Being stored into Disk ONLY if disk cache is enabled (cache_disc_capacity &gt; 0)</li>
+<li>Being stored into Disk ONLY if disk cache is enabled (<code class="codehilite">cache.cache_disc_capacity</code> &gt; 0)</li>
 <li>The whole object is written as a file on the host file system during processing a GET request (a chunk level cache is not implemented)</li>
 </ul>
 </li>
