@@ -1680,24 +1680,28 @@
 <h4 id="configuration-which-can-affect-load-and-cpu-usage">Configuration which can affect Load and CPU usage<a class="headerlink" href="#configuration-which-can-affect-load-and-cpu-usage" title="Permanent link">&para;</a></h4>
 <p><code class="codehilite">mq.num_of_mq_procs</code> can affect not only the performance/load during recover/rebalance operations but the load while there is at least one node suspended/downed in the cluster. so that setting <code class="codehilite">mq.num_of_mq_procs</code> to an appropriate value based on the amount of expected traffic and hardware specs is really important. This section would give you the brief understanding on <code class="codehilite">mq.num_of_mq_procs</code> and how to choose the optimal value for your requirements.</p>
 <ul>
-<li>How the <code class="codehilite">mq.num_of_mq_procs</code> setting affect the system operations</li>
+<li>
+<p>How the <code class="codehilite">mq.num_of_mq_procs</code> setting affect the system operations</p>
+<ul>
 <li>High<ul>
 <li>Fast recover/rebalance time</li>
 <li>High CPU/Load on storage during recover/rebalance and also existing suspended/stopped nodes in the cluster</li>
 </ul>
 </li>
-<li>
-<p>Low</p>
-<ul>
+<li>Low<ul>
 <li>Slow recover/rebalance time</li>
 <li>Low CPU/Load on storage during recover/rebalance and also existing suspended/stopped nodes in the cluster</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
 <p>Recommend settings</p>
-</li>
+<ul>
 <li>If you have enough CPU resources on storage nodes then set it to a higher one as long as it doesn't affect the operations coming from LeoGateway</li>
 <li>If you don't then set it to somewhat a lower one unless the recover take too much time</li>
+</ul>
+</li>
 </ul>
 <p>For more details, Please see Issue #987<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup>.</p>
 <h4 id="configuration-related-to-mq">Configuration related to MQ<a class="headerlink" href="#configuration-related-to-mq" title="Permanent link">&para;</a></h4>
