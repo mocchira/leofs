@@ -173,6 +173,7 @@ handle_call({put, Bin}, _From, #state{bucket_info = BucketInfo,
                                                      total_len = TotalLen_1,
                                                      monitor_set = MonitorSet}}
                 end,
+            erlang:garbage_collect(),
             {reply, Ret, State_1};
         false ->
             {reply, ok, State#state{stacked_bin = Bin_1,
@@ -206,6 +207,7 @@ handle_call(result, _From, #state{bucket_info = BucketInfo,
                   Key_1 = << Key/binary,
                              ?DEF_SEPARATOR/binary,
                              NumOfChunksBin/binary >>,
+                  leo_throttle:free(leo_mem, Size),
                   case leo_gateway_rpc_handler:put(
                          #put_req_params{path = Key_1,
                                          body = StackedBin,

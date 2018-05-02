@@ -250,6 +250,7 @@ after_process_1(Pid, Managers) ->
     ok = leo_metrics_vm:start_link(?SNMP_SYNC_INTERVAL_10S),
     ok = leo_metrics_req:start_link(?SNMP_SYNC_INTERVAL_60S),
     ok = leo_gateway_cache_statistics:start_link(?SNMP_SYNC_INTERVAL_60S),
+    {ok, _} = leo_throttle:start_link(leo_mem, 1024 * 1024 * 1024),
 
     %% Retrieve http-options
     {ok, HttpOptions} = get_options(),

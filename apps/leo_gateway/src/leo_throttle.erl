@@ -1,8 +1,8 @@
 %%======================================================================
 %%
-%% Leo Gateway Large Object PUT Handler
+%% Leo Gateway Large Throttle
 %%
-%% Copyright (c) 2012-2015 Rakuten, Inc.
+%% Copyright (c) 2012-2018 Rakuten, Inc.
 %%
 %% This file is provided to you under the Apache License,
 %% Version 2.0 (the "License"); you may not use this file
@@ -19,17 +19,17 @@
 %% under the License.
 %%
 %%======================================================================
--module(leo_large_object_worker).
+-module(leo_throttle).
 
 -include("leo_gateway.hrl").
--include("leo_http.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
 -behaviour(gen_server).
 
 %% APIs
--export([start_link/1,
-         stop/1
+-export([start_link/2,
+         stop/1,
+         alloc/2, free/2
         ]).
 
 %% gen_server callbacks
@@ -40,17 +40,33 @@
          terminate/2,
          code_change/3]).
 
+-record(state, {resources  :: pos_integer(),
+                wait_queue :: queue:queue({pid(), pos_integer()})
+               }).
+
 %% ===================================================================
 %% API functions
 %% ===================================================================
 %% Function: start_link() -> {ok,Pid} | ignore | {error,Error}
 %% Description: Starts the server
-start_link(WorkerArgs) ->
-    gen_server:start_link(?MODULE, [WorkerArgs], []).
+start_link(Id, MaxResource) ->
+    gen_server:start_link({local, Id}, ?MODULE, [MaxResource], []).
 
 stop(Id) ->
     gen_server:call(Id, stop, 30000).
 
+%% @doc alloc
+%% Try to alloc a specified amount of the resource.
+%% Block till enough resources become available.
+%% Once the resouce you got is no longer needed, call free/2 with the same amount of the resouce.
+alloc(Id, Resource) ->
+    gen_server:call(Id, {alloc, Resource}, infinity).
+
+%% @doc free
+%% Free a specified amount of the resource.
+%% Callers waiting for resources available may be unblocked if enough resources become available.
+free(Id, Resource) ->
+    gen_server:call(Id, {free, Resource}, infinity).
 
 %% ===================================================================
 %% gen_server callbacks
@@ -60,22 +76,36 @@ stop(Id) ->
 %%                         ignore               |
 %%                         {stop, Reason}
 %% Description: Initiates the server
-init([WorkerArgs]) ->
-    {ok, WorkerArgs}.
+init([MaxResource]) ->
+    {ok, #state{resources = MaxResource,
+                wait_queue = queue:new()
+               }}.
 
 handle_call(stop,_From, State) ->
     {stop, normal, ok, State};
 
-handle_call({put, #put_req_params{dsize = Size} = PutReq},_From, State) ->
-    leo_throttle:free(leo_mem, Size),
-    Ret = leo_gateway_rpc_handler:put(PutReq),
-    erlang:garbage_collect(),
-    {reply, Ret, State}.
-
-%% @TODO
-%% handle_call({get, GetReq},_From, State) ->
-%%     {reply, Ret, State}.
-
+handle_call({alloc, Resource},_From, #state{resources = CurResources} = State) when CurResources >= Resource ->
+    {reply, ok, State#state{resources = CurResources - Resource}};
+handle_call({alloc, Resource}, From, #state{wait_queue = WaitQ} = State) ->
+    NewWaitQ = queue:in({From, Resource}, WaitQ),
+    {noreply, State#state{wait_queue = NewWaitQ}};
+handle_call({free, Resource},_From, #state{resources = CurResources, wait_queue = WaitQ} = State) ->
+    case queue:out(WaitQ) of
+        {empty, _} ->
+            {reply, ok, State#state{resources = CurResources + Resource}};
+        {{value, {Pid, ResourceNeeded}}, WaitQ2} ->
+            case ResourceNeeded =< (CurResources + Resource) of
+                true ->
+                    gen_server:reply(Pid, ok),
+                    {reply, ok, State#state{resources = CurResources + Resource - ResourceNeeded,
+                                            wait_queue = WaitQ2}};
+                false ->
+                    {reply, ok, State#state{resources = CurResources + Resource}}
+            end
+    end;
+handle_call(_Unknown,_From, State) ->
+    %% Just ignore
+    {reply, ok, State}.
 
 %% Function: handle_cast(Msg, State) -> {noreply, State}          |
 %%                                      {noreply, State, Timeout} |

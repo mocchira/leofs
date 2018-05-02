@@ -931,6 +931,7 @@ put_large_object_1({more, Data, Req},
                                   transfer_decode_fun = TransferDecodeFun,
                                   transfer_decode_state = TransferDecodeState
                                  } = ReqLargeObj) ->
+    leo_throttle:alloc(leo_mem, byte_size(Data)),
     case catch leo_large_object_put_handler:put(Handler, Data) of
         ok ->
             BodyOpts = [{length, ReadingChunkedSize},
@@ -968,6 +969,7 @@ put_large_object_1({ok, Data, Req}, #req_large_obj{handler = Handler,
                                                    meta = CMeta,
                                                    length = Size,
                                                    chunked_size = ChunkedSize}) ->
+    leo_throttle:alloc(leo_mem, byte_size(Data)),
     case catch leo_large_object_put_handler:put(Handler, Data) of
         ok ->
             case catch leo_large_object_put_handler:result(Handler) of
