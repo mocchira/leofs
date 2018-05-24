@@ -1179,6 +1179,14 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Will document as the other Erlang products do</strong></li>
 </ul>
 </li>
+<li>"Configuration of eager check I/O scheduling for Erlang’s VM" - if this is recommended, how come official packages that come with erlang 17.5 have this option disabled?<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Official packages should be fixed with having this option enabled</strong></li>
+</ul>
+</li>
+<li>Are there plans to update it to 19 now, by the way, now that 19 is supported?<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Yes we will. we at first will ship official packages with 18.x after finishing tests sufficiently</strong></li>
+</ul>
+</li>
 </ol>
 <h2 id="leomanager">LeoManager<a class="headerlink" href="#leomanager" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1240,19 +1248,27 @@
 <li>
 <p>Architecture - LeoStorage</p>
 </li>
-<li>
-<p>Lots of topics where extra documentation would help are already listed in <a href="https://github.com/leo-project/leofs/issues/532" target="_blank">LeoFS Issue#532</a></p>
-<ul class="task-list">
+<li>Lots of topics where extra documentation would help are already listed in <a href="https://github.com/leo-project/leofs/issues/532" target="_blank">LeoFS Issue#532</a><ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Will do #532 ASAP</strong></li>
+</ul>
+</li>
+<li>
+<p>I'd like to add that information about how and when storage nodes do fsync() for data files is missing. Is it done after writing every object? Or on timer? Is it configurable?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Now no explicit call file:fsync because even if we call fsync some blocks can be still on the volatile place (the disk controller can choose not to obey that which unfortunately many disks choose to) but we will consider to take it another look as at least it increase a possibility to be placed at a real permanent one</strong></li>
 </ul>
 </li>
 <li>
 <p>Best Practices</p>
 </li>
-<li>
-<p>how vital is queue in work/queue directory? I mean, obviously data on storage node itself won't be lost if this queue is lost or damaged; but under load, there is information related to replication and such in these messages, right?</p>
-<ul class="task-list">
+<li>how vital is queue in work/queue directory? I mean, obviously data on storage node itself won't be lost if this queue is lost or damaged; but under load, there is information related to replication and such in these messages, right?<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Yes a message in queue may have information related to replication</strong></li>
+</ul>
+</li>
+<li>
+<p>If they are suddenly lost on some node, are any extra steps needed to recover anything that might've been lost?</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> ** Yes. you need some extra steps to recover any files that don't satisfy the redundancy requirement specified at consistency.num_of_replicas in leo_manager.conf. we'd like to answer what the extra step actually is at your another question "scrub of data"**</li>
 </ul>
 </li>
 <li>
