@@ -823,13 +823,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#related-links" title="Related Links" class="md-nav__link">
-    Related Links
-  </a>
-  
-</li>
-      
       
       
       
@@ -1090,13 +1083,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#related-links" title="Related Links" class="md-nav__link">
-    Related Links
-  </a>
-  
-</li>
-      
       
       
       
@@ -1133,22 +1119,84 @@
 </pre></div>
 </td></tr></table>
 
-<h3 id="case-2-launch-a-new-manager-masterslave-instead-of-a-collapsed-node-takeover">Case 2: Launch a new manager-master/slave instead of a collapsed node (takeover)<a class="headerlink" href="#case-2-launch-a-new-manager-masterslave-instead-of-a-collapsed-node-takeover" title="Permanent link">&para;</a></h3>
-<h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../../settings/leo_gateway/">For Administrators / Settings / LeoGateway Settings</a></li>
+<li>Recover manager-master:</li>
+<li>Copy <code class="codehilite">mnesia-files</code> from the manager-slave to the manager-master (not new one)</li>
+<li>Recover manager-slave:</li>
+<li>Copy <code class="codehilite">mnesia-files</code> from the manager-master to the manager-slave (not new one)</li>
 </ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p><a href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank">CDN, Content delivery network</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p><a href="https://nginx.org/" target="_blank">Nginx, An HTTP and reverse proxy server</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ cp &lt;mnesia-files&gt; leo_manager_&lt;NUM&gt;/work/mnesia/127.0.0.1/*
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>Restart both the manager-master and the manager-slave</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ leo_manager_&lt;NUM&gt;/bin/leo_manager start
+</pre></div>
+</td></tr></table>
+
+<h3 id="case-2-launch-a-new-manager-masterslave-instead-of-a-collapsed-node-takeover">Case 2: Launch a new manager-master/slave instead of a collapsed node (takeover)<a class="headerlink" href="#case-2-launch-a-new-manager-masterslave-instead-of-a-collapsed-node-takeover" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Export the mnesia-files with <code class="codehilite">leofs-adm dump-mnesia-data</code> command, which is output at a specified node, manager-master or manager-slave</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">## for manager-master</span>
+$ leofs-adm dump-mnesia-data &lt;absolute-path&gt;
+
+<span class="c1">## for manager-slave</span>
+$ leofs-adm dump-mnesia-data -p &lt;port <span class="o">(</span>default:10011<span class="o">)</span>&gt; &lt;absolute-path&gt;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>Stop both the manager-manager and the manager-slave</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ leo_manager_&lt;NUM&gt;/bin/leo_manager stop
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>Move <code class="codehilite">mnesia-files</code> which is under <code class="codehilite">work/mnesia/127.0.0.1</code> to another directory (backup)</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ mv leo_manager_&lt;NUM&gt;/work/mnesia/127.0.0.1/* &lt;another-directory&gt;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>Update the configuration of <code class="codehilite">manager.partner</code> to be able to communicate between manager-master and manager-slave.</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">## Partner of manager&#39;s alias</span>
+manager.partner <span class="o">=</span> manager_&lt;NUM&gt;@&lt;IP&gt;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>Restart both manager-master and manager-slave</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ leo_manager_&lt;NUM&gt;/bin/leo_manager start
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>Import the mnesia-data from the back-up file</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ leofs-adm load-mnesia-data &lt;absolute-path&gt;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>Update the manager nodes to be able to communicate with the storage and the gateway nodes</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ leofs-adm update-managers manager_0@127.0.0.1 manager_2@127.0.0.1
+OK
+</pre></div>
+</td></tr></table>
                 
                   
                 
