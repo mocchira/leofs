@@ -1120,10 +1120,14 @@
 </td></tr></table>
 
 <ul>
-<li>Recover manager-master:</li>
+<li>Recover manager-master:<ul>
 <li>Copy <code class="codehilite">mnesia-files</code> from the manager-slave to the manager-master (not new one)</li>
-<li>Recover manager-slave:</li>
+</ul>
+</li>
+<li>Recover manager-slave:<ul>
 <li>Copy <code class="codehilite">mnesia-files</code> from the manager-master to the manager-slave (not new one)</li>
+</ul>
+</li>
 </ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ cp &lt;mnesia-files&gt; leo_manager_&lt;NUM&gt;/work/mnesia/127.0.0.1/*
 </pre></div>
@@ -1171,7 +1175,7 @@ $ leofs-adm dump-mnesia-data -p &lt;port <span class="o">(</span>default:10011<s
 </ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">## Partner of manager&#39;s alias</span>
-manager.partner <span class="o">=</span> manager_&lt;NUM&gt;@&lt;IP&gt;
+<span class="na">manager.partner</span> <span class="o">=</span> <span class="s">manager_&lt;NUM&gt;@&lt;IP&gt;</span>
 </pre></div>
 </td></tr></table>
 
