@@ -951,6 +951,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#user-defined-metadata" title="User Defined Metadata" class="md-nav__link">
+    User Defined Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#uploading-objects" title="Uploading Objects" class="md-nav__link">
     Uploading Objects
   </a>
@@ -1049,6 +1056,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#user-defined-metadata" title="User Defined Metadata" class="md-nav__link">
+    User Defined Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#uploading-objects" title="Uploading Objects" class="md-nav__link">
     Uploading Objects
   </a>
@@ -1092,6 +1106,14 @@
 <ul>
 <li><a href="https://github.com/leo-project/leofs/issues/748#issuecomment-306391378">A Comment on LeoFS' Issue #748, Connecting to bucket causes badarg error</a></li>
 <li><a href="../../admin/system_operations/s3/#endpoint">For Administrators / System Operations / S3 / Endpoint</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="user-defined-metadata">User Defined Metadata<a class="headerlink" href="#user-defined-metadata" title="Permanent link">&para;</a></h2>
+<p>Although we support User Defined Metadata according to the original S3 spec, we have reserved every key which prefix is "x-amz-meta-leofs-" as system reserved ones. So please be careful not to use User Defined Metadata with the key prefixed "x-amz-meta-leofs-".</p>
+<ul>
+<li>Related Links:<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-metadata">User Defined Metadata</a></li>
 </ul>
 </li>
 </ul>
