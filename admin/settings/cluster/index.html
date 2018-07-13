@@ -1385,10 +1385,14 @@ $ leofs-adm update-consistency-level <span class="m">2</span> <span class="m">2<
 <h3 id="configurations">Configurations<a class="headerlink" href="#configurations" title="Permanent link">&para;</a></h3>
 <p>You would have to configure the below two items in order to enable rack-awareness replication.</p>
 <ul>
-<li><code class="codehilite">replication.rack_awareness.rack_id</code> in <code class="codehilite">leo_storage.conf</code></li>
+<li><code class="codehilite">replication.rack_awareness.rack_id</code> in <code class="codehilite">leo_storage.conf</code><ul>
 <li>it enables you to specify which rack LeoStorage belongs</li>
-<li><code class="codehilite">consistency.rack_aware_replicas</code> in <code class="codehilite">leo_manager.conf</code></li>
+</ul>
+</li>
+<li><code class="codehilite">consistency.rack_aware_replicas</code> in <code class="codehilite">leo_manager.conf</code><ul>
 <li>it enables you to specify how many racks each file will be replicated</li>
+</ul>
+</li>
 </ul>
 <h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
 <p>Let's say that we try to create a cluster with</p>
@@ -1399,13 +1403,15 @@ $ leofs-adm update-consistency-level <span class="m">2</span> <span class="m">2<
 </ul>
 <p>Then set the configurations as followings</p>
 <ul>
-<li><code class="codehilite">replication.rack_awareness.rack_id</code> on each <code class="codehilite">leo_storage.conf</code></li>
+<li><code class="codehilite">replication.rack_awareness.rack_id</code> on each <code class="codehilite">leo_storage.conf</code><ul>
 <li>node1: <code class="codehilite">replication.rack_awareness.rack_id = rack1</code></li>
 <li>node2: <code class="codehilite">replication.rack_awareness.rack_id = rack1</code></li>
 <li>node3: <code class="codehilite">replication.rack_awareness.rack_id = rack1</code></li>
 <li>node4: <code class="codehilite">replication.rack_awareness.rack_id = rack2</code></li>
 <li>node5: <code class="codehilite">replication.rack_awareness.rack_id = rack2</code></li>
 <li>node6: <code class="codehilite">replication.rack_awareness.rack_id = rack2</code></li>
+</ul>
+</li>
 <li><code class="codehilite">consistency.rack_aware_replicas = 2</code> on <code class="codehilite">leo_manager.conf</code></li>
 </ul>
 <h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
@@ -1419,6 +1425,7 @@ $ leofs-adm update-consistency-level <span class="m">2</span> <span class="m">2<
 <h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../leo_manager/">For Administrators / Settings / LeoManager Settings</a></li>
+<li><a href="../leo_storage/">For Administrators / Settings / LeoStorage Settings</a></li>
 </ul>
                 
                   
