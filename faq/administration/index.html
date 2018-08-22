@@ -1069,6 +1069,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#what-should-i-do-when-many-errors-have-started-to-appear-in-log-files-on-leostorage" title="What should I do when many errors have started to appear in log files on LeoStorage." class="md-nav__link">
+    What should I do when many errors have started to appear in log files on LeoStorage.
+  </a>
+  
+</li>
+      
       
       
       
@@ -1303,6 +1310,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#what-should-i-do-when-many-errors-have-started-to-appear-in-log-files-on-leostorage" title="What should I do when many errors have started to appear in log files on LeoStorage." class="md-nav__link">
+    What should I do when many errors have started to appear in log files on LeoStorage.
+  </a>
+  
+</li>
+      
       
       
       
@@ -1428,10 +1442,10 @@ To decrease the bandwidth and odds timeout could happen, you have two options.</
 <ul>
 <li>The short answer is<ul>
 <li>ONLY when starting each node</li>
-<li>Rarely when the network gets unstable, and TCP connections between nodes get disconnected and re-connected later (TCP connections between nodes in a cluster keep alive and being used for RPC(remote procedure call) and any Distributed Erlang<sup id="fnref3:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> feature, so once connected to others, No DNS lookups happen except abnormal cases as stated above)</li>
+<li>Rarely when the network gets unstable, and TCP connections between nodes get disconnected and re-connected later (TCP connections between nodes in a cluster keep alive and being used for RPC(remote procedure call) and any Distributed Erlang<sup id="fnref4:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> feature, so once connected to others, No DNS lookups happen except abnormal cases as stated above)</li>
 </ul>
 </li>
-<li>The long/precious answer is depending on how Distributed Erlang<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> is implemented so you would have to become a master of Distributed Erlang<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> protocol, however in reality only remembering the short answer could help you in almost cases</li>
+<li>The long/precious answer is depending on how Distributed Erlang<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> is implemented so you would have to become a master of Distributed Erlang<sup id="fnref3:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> protocol, however in reality only remembering the short answer could help you in almost cases</li>
 </ul>
 <p>Given that the above answers, You would not need to be afraid of using hostnames instead of ip addresses.</p>
 <h2 id="why-doesnt-leofs-adm-respond-to-a-command-like-leofs-adm-status">Why doesn't leofs-adm respond to a command like leofs-adm status?<a class="headerlink" href="#why-doesnt-leofs-adm-respond-to-a-command-like-leofs-adm-status" title="Permanent link">&para;</a></h2>
@@ -1461,11 +1475,22 @@ There are <span class="m">2</span> choices <span class="k">for</span> the altern
 
 <h2 id="why-doesnt-leofs-adm-import-user-work-even-the-user-doesnt-exist">Why doesn't leofs-adm import-user work even the user doesn't exist?<a class="headerlink" href="#why-doesnt-leofs-adm-import-user-work-even-the-user-doesnt-exist" title="Permanent link">&para;</a></h2>
 <p>If you are using LeoFS &lt;= v1.3.8 then you probably hit the issue<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>. If that is the case, we'd recommend you upgrade to the v1.4.0 or higher one in which version you can use import-user with the force update option (-f) that enables you to import the user with the existing access-key-id.</p>
+<h2 id="what-should-i-do-when-many-errors-have-started-to-appear-in-log-files-on-leostorage">What should I do when many errors have started to appear in log files on LeoStorage.<a class="headerlink" href="#what-should-i-do-when-many-errors-have-started-to-appear-in-log-files-on-leostorage" title="Permanent link">&para;</a></h2>
+<p>Some users faced this problem<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> with log files filled with following error lines.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">[</span><span class="n">E</span><span class="p">]</span>     <span class="n">node01</span><span class="mf">@10.3.15.101</span>      <span class="mi">2018</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">26</span> <span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">50.863832</span> <span class="o">+</span><span class="mo">0300</span>        <span class="mi">1532637410l</span><span class="nl">eo_storage_handler_object</span><span class="p">:</span><span class="n">get</span><span class="o">/</span><span class="mi">4</span>      <span class="mi">190</span>     <span class="p">[{</span><span class="n">from</span><span class="p">,</span><span class="n">gateway</span><span class="p">},{</span><span class="n">method</span><span class="p">,</span><span class="n">get</span><span class="p">},{</span><span class="n">key</span><span class="p">,</span><span class="o">&lt;&lt;</span><span class="s">&quot;production/promotion/261/1.jpg&quot;</span><span class="o">&gt;&gt;</span><span class="p">},{</span><span class="n">req_id</span><span class="p">,</span><span class="mi">31364649</span><span class="p">},{</span><span class="n">etag</span><span class="p">,</span><span class="mi">18791873666153085349492137587707139197</span><span class="p">},{</span><span class="n">cause</span><span class="p">,</span><span class="n">unavailable</span><span class="p">}]</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[E] storage_0@chuckwalla.pleiad.uaprom  2018-08-07 17:42:12.196108 +0300    1533652932  leo_storage_handler_object:put/2    389 [{from,gateway},{method,put},{key,&lt;&lt;&quot;uaprom-image/612807456_w200_h200_cid2413932_pid341885190-cb582430.jpg&quot;&gt;&gt;},{req_id,59131282},{cause,unavailable}]
+</pre></div>
+</td></tr></table>
+
+<p>It turns out that this problem can happen in case <code class="codehilite">obj_containers.num_of_containers</code> in leo_storage.conf is set to relatively high number so if you face this problem and <code class="codehilite">obj_containers.num_of_containers</code> is set to relatively high then please try to lower the value like 32, 64. One of our users has succeeded in fixing this problem by changing its value from 384 to 64.</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p><a href="http://erlang.org/doc/reference_manual/distributed.html" target="_blank">Distributed Erlang</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a href="https://github.com/leo-project/leofs/issues/1078#issuecomment-408240731" target="_blank">LeoFS' Issue #1078, Inconsistent RING can happen when rebalancing the cluster</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
 <p><a href="https://github.com/leo-project/leofs/issues/519" target="_blank">LeoFS' Issue #519, Deb (a LeoFS' package for Ubuntu) should require netcat-openbsd instead of netcat</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
