@@ -1380,6 +1380,10 @@ $ leofs-adm status
 </pre></div>
 </td></tr></table>
 
+<div class="admonition warning">
+<p class="admonition-title">Warning: Avoid Rebalance with many nodes attached|detached</p>
+<p>While rebalance is on-going, The more nodes attached|detached there are, The more system resources like network bandwidth, Disk I/O, your LeoFS cluster can consume. Instead we'd recommend you divide the ong big rebalance into smaller multiple rebalances and issue rebalance one by one to avoid exhausting system resouces.</p>
+</div>
 <h3 id="remove-a-node">Remove a Node<a class="headerlink" href="#remove-a-node" title="Permanent link">&para;</a></h3>
 <p>If you need to shrink a target LeoFS' cluster size, you can realize that by following the operation flow.</p>
 <ul>
