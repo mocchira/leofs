@@ -1509,6 +1509,10 @@
 </ul>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note: How files are distributed across the containers and AVS/KVS pairs?</p>
+<p>It's determined by a simple math, in brief, <code class="codehilite">hash(<span class="cp">${</span><span class="n">filename</span><span class="cp">}</span>) modulo <span class="cp">${</span><span class="n">number_of_avs_kvs_pairs</span><span class="cp">}</span></code> so that being said, LeoFS can't handle PUT/DELETE operations on a container which disk space is full(In other words, LeoFS doesn't take the remained disk space into account when deciding the container for PUT/DELETE operations). If you want to scale up (add an additional disk volume) a specific LeoStorage then you need to follow the instruction here<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>.</p>
+</div>
 <h3 id="data-compaction">Data Compaction<a class="headerlink" href="#data-compaction" title="Permanent link">&para;</a></h3>
 <p>This section provides information about what/how data-compaction can affect the online performance.</p>
 <ul>
@@ -1942,11 +1946,28 @@ OK
 </li>
 </ul>
 </li>
+<li>Scale up (Add an additional disk volume on LeoStorage)<ul>
+<li>Suspend and Stop LeoStorage with <code class="codehilite">leofs-adm suspend</code> and <code class="codehilite">leo_storage stop</code></li>
+<li>Add an addtional disk volume on the node</li>
+<li>Modify leo_storage.conf to append the new disk volume into <code class="codehilite">obj_containers.num_of_containers</code></li>
+<li>Wipe out all files/directories in all containers on the node</li>
+<li>Start and Resume LeoStorage with <code class="codehilite">leo_storage start</code> and <code class="codehilite">leofs-adm resume</code></li>
+<li>Invoke <code class="codehilite">recover-node</code> with the node to ingest assigned files from other LeoStorages into a new disk layout specified by <code class="codehilite">obj_containers.num_of_containers</code></li>
+</ul>
+</li>
 </ul>
 <h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../../architecture/leo_storage/">Concept and Architecture / LeoStorage's Architecture</a></li>
 </ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://leo-project.net/leofs/docs/admin/system_operations/data/#use-cases" target="_blank">Use Cases - Scale up (Add an additional disk volume on LeoStorage)</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 
