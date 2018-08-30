@@ -1949,10 +1949,10 @@ OK
 <li>Scale up (Add an additional disk volume on LeoStorage)<ul>
 <li>Suspend and Stop LeoStorage with <code class="codehilite">leofs-adm suspend</code> and <code class="codehilite">leo_storage stop</code></li>
 <li>Add an addtional disk volume on the node</li>
-<li>Modify leo_storage.conf to append the new disk volume into <code class="codehilite">obj_containers.num_of_containers</code></li>
+<li>Modify leo_storage.conf to append the new disk volume into <code class="codehilite">obj_containers.path</code> and also add the number of the containers into <code class="codehilite">obj_containers.num_of_containers</code>. <em>(The number of items of <code class="codehilite">obj_containers.path</code> and <code class="codehilite">obj_containers.num_of_containers</code> should be same.)</em></li>
 <li>Wipe out all files/directories in all containers on the node</li>
 <li>Start and Resume LeoStorage with <code class="codehilite">leo_storage start</code> and <code class="codehilite">leofs-adm resume</code></li>
-<li>Invoke <code class="codehilite">recover-node</code> with the node to ingest assigned files from other LeoStorages into a new disk layout specified by <code class="codehilite">obj_containers.num_of_containers</code></li>
+<li>Invoke <code class="codehilite">recover-node</code> with the node to ingest assigned files from other LeoStorages into a new disk layout specified by <code class="codehilite">obj_containers.path</code> and <code class="codehilite">obj_containers.num_of_containers</code></li>
 </ul>
 </li>
 </ul>
