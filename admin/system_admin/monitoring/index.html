@@ -938,8 +938,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-grafana" title="Using Grafana" class="md-nav__link">
-    Using Grafana
+  <a href="#using-influxdb-grafana" title="Using InfluxDB + Grafana" class="md-nav__link">
+    Using InfluxDB + Grafana
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-prometheus-grafana" title="Using Prometheus + Grafana" class="md-nav__link">
+    Using Prometheus + Grafana
   </a>
   
 </li>
@@ -1302,8 +1309,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-grafana" title="Using Grafana" class="md-nav__link">
-    Using Grafana
+  <a href="#using-influxdb-grafana" title="Using InfluxDB + Grafana" class="md-nav__link">
+    Using InfluxDB + Grafana
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-prometheus-grafana" title="Using Prometheus + Grafana" class="md-nav__link">
+    Using Prometheus + Grafana
   </a>
   
 </li>
@@ -2055,10 +2069,38 @@ SNMPv2-SMI::enterprises.35450.15.15.0 <span class="o">=</span> Gauge32: <span cl
 </pre></div>
 </td></tr></table>
 
-<h2 id="using-grafana">Using Grafana<a class="headerlink" href="#using-grafana" title="Permanent link">&para;</a></h2>
-<p>In order to easily monitor LeoFS, we provide LeoFS' input plugin of Telegraf<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>. See more details on <a href ="https://github.com/influxdata/telegraf/tree/master/plugins/inputs/leofs/" target="_blank">its documentation</a>.</p>
-<p>If you decide to utilize Telegraf<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>, you need to install InfluxDB<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> and Grafana<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>.</p>
+<h2 id="using-influxdb-grafana">Using InfluxDB + Grafana<a class="headerlink" href="#using-influxdb-grafana" title="Permanent link">&para;</a></h2>
+<p>In order to easily monitor LeoFS, we provide LeoFS' input plugin of Telegraf<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>. See more details on <a href ="https://github.com/influxdata/telegraf/tree/master/plugins/inputs/leofs/" target="_blank">its documentation</a>.
+If you decide to use Telegraf<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> as LeoFS' monitoring agent, you need to install InfluxDB<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> and Grafana<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>.</p>
 <p><img alt="" src="../../../assets/leofs-monitoring-with-grafana.png" /></p>
+<h2 id="using-prometheus-grafana">Using Prometheus + Grafana<a class="headerlink" href="#using-prometheus-grafana" title="Permanent link">&para;</a></h2>
+<p>We provide another way of LeoFS system monitoring which uses Prometheus <sup id="fnref:4"><a class="footnote-ref" href="#fn:4" rel="footnote">4</a></sup> and SNMP-Exporter <sup id="fnref:5"><a class="footnote-ref" href="#fn:5" rel="footnote">5</a></sup>, and deliver <code class="codehilite">snmp.yml</code> of each component <em>(LeoGateway, LeoManager, and LeoStorage)</em> so that you can easily start.</p>
+<ul>
+<li><a href="https://github.com/leo-project/leofs/blob/v1/apps/leo_gateway/priv/leo_gateway_snmp.yml" target="_blank">LeoGateway snmp.yml</a></li>
+<li><a href="https://github.com/leo-project/leofs/blob/v1/apps/leo_manager/priv/leo_manager_snmp.yml" target="_blank">LeoManager snmp.yml</a></li>
+<li><a href="https://github.com/leo-project/leofs/blob/v1/apps/leo_storage/priv/leo_storage_snmp.yml" target="_blank">LeoStorage snmp.yml</a></li>
+</ul>
+<p>A LeoFS' package includes each <code class="codehilite">snmp.yml</code> under each <code class="codehilite">etc</code> directory as below:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>leo_gateway/etc/
+└── leo_gateway_snmp.yml
+leo_manager_0/etc/
+└── leo_manager_snmp.yml
+leo_manager_1/etc/
+└── leo_manager_snmp.yml
+leo_storage/etc/
+└── leo_storage_snmp.yml
+</pre></div>
+</td></tr></table>
+
+<p>See more details on <a href ="https://github.com/prometheus/snmp_exporter" target="_blank"> SNMP-Exporter's documentation</a>.
+If you decide to use Prometheus <sup id="fnref2:4"><a class="footnote-ref" href="#fn:4" rel="footnote">4</a></sup>, you need to install Grafana <sup id="fnref2:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup> and SNMP-Exporter <sup id="fnref2:5"><a class="footnote-ref" href="#fn:5" rel="footnote">5</a></sup> to LeoGateway nodes, LeoManager nodes, and LeoStorage nodes respectively.</p>
 <h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../settings/leo_manager/">Administrators / Settings / LeoManager Settings</a></li>
@@ -2075,7 +2117,13 @@ SNMPv2-SMI::enterprises.35450.15.15.0 <span class="o">=</span> Gauge32: <span cl
 <p><a href="https://github.com/influxdata/influxdb">InfluxDB - An Open-Source Time Series Database</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p><a href="https://grafana.com/" target="_blank">Grafana - The open platform for analytics and monitoring</a>&#160;<a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p><a href="https://grafana.com/" target="_blank">Grafana - The open platform for analytics and monitoring</a>&#160;<a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://prometheus.io/" target="_blank">Prometheus - Monitoring system and timeseries database</a>&#160;<a class="footnote-backref" href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://github.com/prometheus/snmp_exporter" target="_blank">SNMP-Exporter - SNMP Exporter for Prometheus </a>&#160;<a class="footnote-backref" href="#fnref:5" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
