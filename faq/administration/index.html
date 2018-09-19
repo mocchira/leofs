@@ -1500,6 +1500,7 @@ There are <span class="m">2</span> choices <span class="k">for</span> the altern
 </td></tr></table>
 
 <p>It turns out that this problem can happen in case <code class="codehilite">obj_containers.num_of_containers</code> in leo_storage.conf is set to relatively high number so if you face this problem and <code class="codehilite">obj_containers.num_of_containers</code> is set to relatively high then please try to lower the value like 32, 64. One of our users has succeeded in fixing this problem by changing its value from 384 to 64.</p>
+<p>Also there is another possibility this problem can happen in case the background processing like rebalance/recover consumes so much system resouces. In this case, you may be able to solve the problem by controlling the speed of the background processing like lowering <code class="codehilite">mq.num_of_batch_process_max</code> , increasing <code class="codehilite">mq.interval_between_batch_procs_max</code> in leo_storage.conf.</p>
 <h2 id="what-should-i-do-when-adding-additional-disk-volumes-on-leostorage-and-want-to-use-that-space-for-storing-files-in-leofs">What should I do when adding additional disk volumes on LeoStorage and want to use that space for storing files in LeoFS?<a class="headerlink" href="#what-should-i-do-when-adding-additional-disk-volumes-on-leostorage-and-want-to-use-that-space-for-storing-files-in-leofs" title="Permanent link">&para;</a></h2>
 <p>Follow the instruction here<sup id="fnref:5"><a class="footnote-ref" href="#fn:5" rel="footnote">5</a></sup>.</p>
 <div class="footnote">
