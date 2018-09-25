@@ -965,6 +965,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#has-leofs-supported-the-gzip-compression-on-get" title="Has LeoFS supported the gzip compression on GET?" class="md-nav__link">
+    Has LeoFS supported the gzip compression on GET?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cant-read-files-stored-in-leofs-using-s3fs" title="Can't read files stored in LeoFS using s3fs" class="md-nav__link">
     Can't read files stored in LeoFS using s3fs
   </a>
@@ -1090,6 +1097,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#has-leofs-supported-the-gzip-compression-on-get" title="Has LeoFS supported the gzip compression on GET?" class="md-nav__link">
+    Has LeoFS supported the gzip compression on GET?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cant-read-files-stored-in-leofs-using-s3fs" title="Can't read files stored in LeoFS using s3fs" class="md-nav__link">
     Can't read files stored in LeoFS using s3fs
   </a>
@@ -1159,6 +1173,8 @@
 </ul>
 <h2 id="uploading-objects">Uploading Objects<a class="headerlink" href="#uploading-objects" title="Permanent link">&para;</a></h2>
 <p>See <a href="../../admin/settings/leo_gateway/">Administrators / Settings / LeoGateway Settings - Uploading Objects</a></p>
+<h2 id="has-leofs-supported-the-gzip-compression-on-get">Has LeoFS supported the gzip compression on GET?<a class="headerlink" href="#has-leofs-supported-the-gzip-compression-on-get" title="Permanent link">&para;</a></h2>
+<p>Yes since 1.4.3, you can request the gzip compression to LeoFS by adding <code class="codehilite"><span class="n">AcceptEncoding</span><span class="o">:</span> <span class="n">gzip</span></code> into the HTTP request header. However it doesn't mean the gzip compression is always applied to any objects returned from LeoFS. it's applied only in case <code class="codehilite">object.size &gt;= 300 &amp;&amp; object.size &lt; large_object.chunked_obj_len in leo_gateway.conf</code>.</p>
 <h2 id="cant-read-files-stored-in-leofs-using-s3fs">Can't read files stored in LeoFS using s3fs<a class="headerlink" href="#cant-read-files-stored-in-leofs-using-s3fs" title="Permanent link">&para;</a></h2>
 <p>s3fs can make a part request in a different size on each part as described below.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
