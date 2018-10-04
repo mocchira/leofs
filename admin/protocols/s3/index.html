@@ -706,6 +706,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#how-to-deal-with-content-type-request-header-on-put" title="How to deal with Content-Type Request Header on PUT" class="md-nav__link">
+    How to deal with Content-Type Request Header on PUT
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-142" title="Before 1.4.2" class="md-nav__link">
+    Before 1.4.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#since-143" title="Since 1.4.3" class="md-nav__link">
+    Since 1.4.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-using-the-old-behaviour-even-after-upgrading-to-143-or-higher-ones" title="Keep using the old behaviour even after upgrading to 1.4.3 or higher ones" class="md-nav__link">
+    Keep using the old behaviour even after upgrading to 1.4.3 or higher ones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1228,6 +1262,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#how-to-deal-with-content-type-request-header-on-put" title="How to deal with Content-Type Request Header on PUT" class="md-nav__link">
+    How to deal with Content-Type Request Header on PUT
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-142" title="Before 1.4.2" class="md-nav__link">
+    Before 1.4.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#since-143" title="Since 1.4.3" class="md-nav__link">
+    Since 1.4.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-using-the-old-behaviour-even-after-upgrading-to-143-or-higher-ones" title="Keep using the old behaviour even after upgrading to 1.4.3 or higher ones" class="md-nav__link">
+    Keep using the old behaviour even after upgrading to 1.4.3 or higher ones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1599,6 +1667,15 @@
 <li>Bucket names must not be formatted as an IP address (e.g., 192.168.5.4).</li>
 <li>Bucket name cannot start and end with periods (.), dashes (-) and underscores (_).</li>
 </ul>
+<h3 id="how-to-deal-with-content-type-request-header-on-put">How to deal with Content-Type Request Header on PUT<a class="headerlink" href="#how-to-deal-with-content-type-request-header-on-put" title="Permanent link">&para;</a></h3>
+<p>Before 1.4.2, LeoFS had ignored Content-Type Request Header on PUT/POST and deduced the MIME type based on the file name extension and set that value to Content-Type Response Header on GET/HEAD. Since it turns out that this behaviour is different form AWS-S3 spec, we've decided to make it compatible with AWS-S3 spec while providing the old behaviour as well to ensure the backward compatibility for some users.</p>
+<p>Since the old behaviour is set as default, if you want the new behaviour then you would have to set <code class="codehilite">http.is_compatible_with_s3_content_type</code> in `leo_gateway.conf<code class="codehilite">to</code>true``.</p>
+<h4 id="before-142">Before 1.4.2<a class="headerlink" href="#before-142" title="Permanent link">&para;</a></h4>
+<p>For example, say you uploaded the file named <code class="codehilite">path/to/file.jpg</code> with Content-Type set to <code class="codehilite">image/png</code> then on GET you would download the file with Content-Type set to <code class="codehilite">image.jpg</code> in accordance with its extention.</p>
+<h4 id="since-143">Since 1.4.3<a class="headerlink" href="#since-143" title="Permanent link">&para;</a></h4>
+<p>For example, say you uploaded the file named <code class="codehilite">path/to/file.jpg</code> with Content-Type set to <code class="codehilite">image/png</code> then on GET you would download the file with Content-Type set to <code class="codehilite">image.png</code> in accordance with Content-Type included in the request.</p>
+<h4 id="keep-using-the-old-behaviour-even-after-upgrading-to-143-or-higher-ones">Keep using the old behaviour even after upgrading to 1.4.3 or higher ones<a class="headerlink" href="#keep-using-the-old-behaviour-even-after-upgrading-to-143-or-higher-ones" title="Permanent link">&para;</a></h4>
+<p>It's possible to do so by setting <code class="codehilite">http.is_compatible_with_s3_content_type</code> in <code class="codehilite">leo_gateway.conf</code> to <code class="codehilite">false</code>.</p>
 <h2 id="s3-clients">S3 Clients<a class="headerlink" href="#s3-clients" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://aws.amazon.com/tools/">AWS SDKs</a></li>
